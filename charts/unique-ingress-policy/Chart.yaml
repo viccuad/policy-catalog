@@ -2,6 +2,7 @@ annotations:
   kubewarden/contextAwareResources: |
     - apiVersion: networking.k8s.io/v1
       kind: Ingress
+  kubewarden/displayName: Unique Ingress host
   kubewarden/mutation: "false"
   kubewarden/registry: ghcr.io
   kubewarden/repository: kubewarden/policies/unique-ingress-policy
@@ -23,7 +24,7 @@ home: https://github.com/kubewarden/unique-ingress-policy
 keywords:
 - ingress
 - kubewarden
-name: Unique Ingress host
+name: ingress-unique-host
 sources:
 - ghcr.io/kubewarden/policies/unique-ingress-policy:v0.1.5
 version: 0.1.5
