@@ -14,6 +14,7 @@ import (
 
 // ArtifactHubPkg represents the structure of an artifacthub-pkg.yml file
 type ArtifactHubPkg struct {
+	Name             string            `yaml:"name"`
 	DisplayName      string            `yaml:"displayName"`
 	Version          string            `yaml:"version"`
 	Description      string            `yaml:"description"`
@@ -63,8 +64,8 @@ func main() {
 		os.Exit(1)
 	}
 
-	ociUrl := pkg.ContainersImages[0].Image
-	ref, err := name.NewTag(ociUrl)
+	ociURL := pkg.ContainersImages[0].Image
+	ref, err := name.NewTag(ociURL)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error parsing container image URL: %v\n", err)
 		os.Exit(1)
@@ -74,8 +75,10 @@ func main() {
 	annotations["kubewarden/repository"] = ref.Context().RepositoryStr()
 	annotations["kubewarden/tag"] = ref.TagStr()
 
+	annotations["kubewarden/displayName"] = pkg.DisplayName
+
 	metadata := chart.Metadata{
-		Name:        pkg.DisplayName,
+		Name:        pkg.Name,
 		Version:     pkg.Version,
 		AppVersion:  pkg.Version,
 		Description: pkg.Description,
