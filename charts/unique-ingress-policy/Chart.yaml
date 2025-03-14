@@ -1,4 +1,7 @@
 annotations:
+  catalog.cattle.io/hidden: "true"
+  catalog.cattle.io/type: kubewarden-policy
+  catalog.cattle.io/ui-component: kubewarden
   kubewarden/contextAwareResources: |
     - apiVersion: networking.k8s.io/v1
       kind: Ingress

@@ -1,4 +1,7 @@
 annotations:
+  catalog.cattle.io/hidden: "true"
+  catalog.cattle.io/type: kubewarden-policy
+  catalog.cattle.io/ui-component: kubewarden
   kubewarden/displayName: Verify Image Signatures
   kubewarden/mutation: "true"
   kubewarden/registry: ghcr.io

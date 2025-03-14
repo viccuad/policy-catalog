@@ -75,6 +75,11 @@ func main() {
 	annotations["kubewarden/repository"] = ref.Context().RepositoryStr()
 	annotations["kubewarden/tag"] = ref.TagStr()
 
+	// Add annotations required by Rancher
+	annotations["catalog.cattle.io/ui-component"] = "kubewarden"
+	annotations["catalog.cattle.io/hidden"] = "true"
+	annotations["catalog.cattle.io/type"] = "kubewarden-policy"
+
 	annotations["kubewarden/displayName"] = pkg.DisplayName
 
 	metadata := chart.Metadata{
