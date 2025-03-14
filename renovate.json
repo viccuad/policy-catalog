@@ -5,15 +5,5 @@
     "schedule:earlyMondays",
     "helpers:pinGitHubActionDigests"
   ],
-  "labels": [
-    "area/dependencies"
-  ],
-  "packageRules": [
-    {
-      "matchPackagePatterns": [
-        ".*kyverno/policy-reporter-ui"
-      ],
-      "allowedVersions": "!/1.15.1$/"
-    }
-  ]
+  "labels": ["area/dependencies"]
 }

@@ -1,0 +1,60 @@
+annotations:
+  kubewarden/mutation: "true"
+  kubewarden/registry: ghcr.io
+  kubewarden/repository: kubewarden/policies/verify-image-signatures
+  kubewarden/resources: Pod
+  kubewarden/rules: |
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      resources:
+      - pods
+      operations:
+      - CREATE
+      - UPDATE
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      resources:
+      - replicationcontrollers
+      operations:
+      - CREATE
+      - UPDATE
+    - apiGroups:
+      - apps
+      apiVersions:
+      - v1
+      resources:
+      - deployments
+      - replicasets
+      - statefulsets
+      - daemonsets
+      operations:
+      - CREATE
+      - UPDATE
+    - apiGroups:
+      - batch
+      apiVersions:
+      - v1
+      resources:
+      - jobs
+      - cronjobs
+      operations:
+      - CREATE
+      - UPDATE
+  kubewarden/tag: v0.3.0
+appVersion: 0.3.0
+description: A Kubewarden Policy that verifies all the signatures of the container
+  images referenced by a Pod
+home: https://github.com/kubewarden/verify-image-signatures
+keywords:
+- pod
+- signature
+- sigstore
+- trusted
+name: Verify Image Signatures
+sources:
+- ghcr.io/kubewarden/policies/verify-image-signatures:v0.3.0
+version: 0.3.0
