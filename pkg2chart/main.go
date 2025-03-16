@@ -1,8 +1,11 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
+	"io"
+	"net/http"
 	"os"
 	"path/filepath"
 
@@ -24,6 +27,17 @@ type ArtifactHubPkg struct {
 	ContainersImages []ContainerImage  `yaml:"containersImages"`
 }
 
+// ArtifactHubRepo represents the structure of an artifacthub-repo.yml file
+type ArtifactHubRepo struct {
+	RepositoryID string `yaml:"repositoryID"`
+}
+
+// RepositoryResponse represents the structure of a response from the ArtifactHub API
+type RepositoryResponse struct {
+	RepositoryID string `json:"repository_id"`
+	Name         string `json:"name"`
+}
+
 // ContainerImage represents the structure of a container image in an artifacthub-pkg.yml file
 type ContainerImage struct {
 	Name  string `yaml:"name"`
@@ -31,7 +45,9 @@ type ContainerImage struct {
 }
 
 func main() {
-	inputPath := flag.String("input", "artifacthub-pkg.yml", "Path to the artifacthub-pkg.yml file")
+	pkgPath := flag.String("pkg", "artifacthub-pkg.yml", "Path to the artifacthub-pkg.yml file")
+	repoPath := flag.String("repo", "artifacthub-repo.yml", "Path to the artifacthub-repo.yml file")
+
 	outputPath := flag.String("output", "Chart.yaml", "Path to output Chart.yaml file")
 
 	flag.Parse()
@@ -41,7 +57,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	data, err := os.ReadFile(*inputPath)
+	data, err := os.ReadFile(*pkgPath)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error reading input file: %v\n", err)
 		os.Exit(1)
@@ -54,10 +70,30 @@ func main() {
 		os.Exit(1)
 	}
 
+	var pkgRepo ArtifactHubRepo
+	data, err = os.ReadFile(*repoPath)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error reading input file: %v\n", err)
+		os.Exit(1)
+	}
+	err = yaml.Unmarshal(data, &pkgRepo)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error parsing YAML: %v\n", err)
+		os.Exit(1)
+	}
+
+	repositoryName, err := getRepositoryNameByID(pkgRepo.RepositoryID)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error getting repository name: %v\n", err)
+		os.Exit(1)
+	}
+
 	// Delete the `kubewarden/questions-ui` annotation.
 	// Rancher retrieves the questions.yaml file directly from the chart directory when listing a catalog.
 	annotations := pkg.Annotations
 	delete(annotations, "kubewarden/questions-ui")
+
+	annotations["artifacthub.io/repository"] = repositoryName
 
 	if len(pkg.ContainersImages) == 0 {
 		fmt.Fprintf(os.Stderr, "Error: no container image found in artifacthub-pkg.yml\n")
@@ -108,5 +144,57 @@ func main() {
 		os.Exit(1)
 	}
 
-	fmt.Printf("Successfully converted %s to %s\n", *inputPath, *outputPath)
+	fmt.Printf("Successfully converted %s to %s\n", *pkgPath, *outputPath)
+}
+
+const (
+	orgName = "kubewarden"
+	limit   = 60
+)
+
+func getRepositoryNameByID(repoID string) (string, error) {
+	offset := 0
+
+	for {
+		// Since the ArtifactHub API does not provide a way to search for a repository by ID,
+		// we need to retrieve all repositories from the organization and search for the repository by ID.
+		// The limit is set to 60 because it is the maximum number of repositories that can be retrieved in a single request.
+		url := fmt.Sprintf("https://artifacthub.io/api/v1/repositories/search?org=%s&limit=%d&offset=%d",
+			orgName, limit, offset)
+
+		resp, err := http.Get(url)
+		if err != nil {
+			return "", fmt.Errorf("HTTP request failed: %w", err)
+		}
+
+		body, err := io.ReadAll(resp.Body)
+		resp.Body.Close()
+
+		if err != nil {
+			return "", fmt.Errorf("failed to read response body: %w", err)
+		}
+
+		if resp.StatusCode != http.StatusOK {
+			return "", fmt.Errorf("unexpected status code: %d", resp.StatusCode)
+		}
+
+		var repositories []RepositoryResponse
+		if err := json.Unmarshal(body, &repositories); err != nil {
+			return "", fmt.Errorf("failed to unmarshal JSON: %w", err)
+		}
+
+		if len(repositories) == 0 {
+			break
+		}
+
+		for _, repo := range repositories {
+			if repo.RepositoryID == repoID {
+				return repo.Name, nil
+			}
+		}
+
+		offset += limit
+	}
+
+	return "", fmt.Errorf("repository with ID %s not found", repoID)
 }
