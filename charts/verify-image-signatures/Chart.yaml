@@ -1,4 +1,5 @@
 annotations:
+  artifacthub.io/repository: verify-image-signatures
   catalog.cattle.io/hidden: "true"
   catalog.cattle.io/type: kubewarden-policy
   catalog.cattle.io/ui-component: kubewarden
