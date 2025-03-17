@@ -1,4 +1,5 @@
 annotations:
+  artifacthub.io/repository: unique-ingress-policy
   catalog.cattle.io/hidden: "true"
   catalog.cattle.io/type: kubewarden-policy
   catalog.cattle.io/ui-component: kubewarden
