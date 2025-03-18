@@ -1,0 +1,63 @@
+annotations:
+  artifacthub.io/repository: user-group-psp
+  catalog.cattle.io/hidden: "true"
+  catalog.cattle.io/type: kubewarden-policy
+  catalog.cattle.io/ui-component: kubewarden
+  kubewarden/displayName: User Group PSP
+  kubewarden/mutation: "true"
+  kubewarden/registry: ghcr.io
+  kubewarden/repository: kubewarden/policies/user-group-psp
+  kubewarden/resources: Pod
+  kubewarden/rules: |
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      resources:
+      - pods
+      operations:
+      - CREATE
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      resources:
+      - replicationcontrollers
+      operations:
+      - CREATE
+      - UPDATE
+    - apiGroups:
+      - apps
+      apiVersions:
+      - v1
+      resources:
+      - deployments
+      - replicasets
+      - statefulsets
+      - daemonsets
+      operations:
+      - CREATE
+      - UPDATE
+    - apiGroups:
+      - batch
+      apiVersions:
+      - v1
+      resources:
+      - jobs
+      - cronjobs
+      operations:
+      - CREATE
+      - UPDATE
+  kubewarden/tag: v0.6.3
+appVersion: 0.6.3
+description: Kubewarden Policy that controls containers user and groups
+home: https://github.com/kubewarden/user-group-psp-policy
+keywords:
+- psp
+- container
+- user
+- group
+name: user-group-psp
+sources:
+- ghcr.io/kubewarden/policies/user-group-psp:v0.6.3
+version: 0.6.3
