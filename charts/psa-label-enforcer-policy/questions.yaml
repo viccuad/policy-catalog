@@ -1,0 +1,60 @@
+questions:
+  - default: null
+    description: >-
+      This policy ensures that namespaces have the required PSA labels configuration for deployment in the cluster. The policy validates whether the PSA labels defined in the namespace comply with the configuration specified in the policy settings. If the labels do not match the configuration, the policy will modify the required labels to meet the requirements.
+    group: Settings
+    label: Description
+    required: false
+    hide_input: true
+    type: string
+    variable: description
+  - default: {}
+    description: >-
+      The policy settings consist of fields where the user can define the pod security levels and versions to be used in the deployed namespace. While it is not necessary to define all the modes in the policy settings, at least one mode must be defined, with or without the mode version. The mode level fields allow three values: baseline, restricted, and privileged. It is not permitted to define the mode version without specifying the mode level. The mode version must follow the v<major>.<minor> version pattern or use the latest value.
+    label: Modes
+    hide_input: true
+    type: map[
+    variable: modes
+    subquestions:
+      - default: ''
+        group: Settings
+        label: Enforce
+        options:
+        - baseline
+        - restricted
+        - privileged
+        type: enum
+        variable: modes.enforce
+      - default: ''
+        group: Settings
+        label: Enforce Version
+        type: string
+        variable: modes.enforce-version
+      - default: ''
+        group: Settings
+        label: Audit
+        options:
+        - baseline
+        - restricted
+        - privileged
+        type: enum
+        variable: modes.audit
+      - default: ''
+        group: Settings
+        label: Audit Version
+        type: string
+        variable: modes.audit-version
+      - default: ''
+        group: Settings
+        label: Warn
+        options:
+        - baseline
+        - restricted
+        - privileged
+        type: enum
+        variable: modes.warn
+      - default: ''
+        group: Settings
+        label: Warn Version
+        type: string
+        variable: modes.warn-version
