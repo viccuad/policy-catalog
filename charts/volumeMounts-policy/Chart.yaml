@@ -1,0 +1,66 @@
+annotations:
+  artifacthub.io/repository: volumemounts-policy
+  catalog.cattle.io/hidden: "true"
+  catalog.cattle.io/type: kubewarden-policy
+  catalog.cattle.io/ui-component: kubewarden
+  kubewarden/displayName: volumeMounts
+  kubewarden/mutation: "false"
+  kubewarden/registry: ghcr.io
+  kubewarden/repository: kubewarden/policies/volumemounts
+  kubewarden/resources: Pod,Deployment,Replicaset,Statefulset,Daemonset,Replicationcontroller,Job,Cronjob
+  kubewarden/rules: |
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      resources:
+      - pods
+      operations:
+      - CREATE
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      resources:
+      - replicationcontrollers
+      operations:
+      - CREATE
+      - UPDATE
+    - apiGroups:
+      - apps
+      apiVersions:
+      - v1
+      resources:
+      - deployments
+      - replicasets
+      - statefulsets
+      - daemonsets
+      operations:
+      - CREATE
+      - UPDATE
+    - apiGroups:
+      - batch
+      apiVersions:
+      - v1
+      resources:
+      - jobs
+      - cronjobs
+      operations:
+      - CREATE
+      - UPDATE
+  kubewarden/tag: v0.1.7
+appVersion: 0.1.7
+description: Policy that inspects containers, init containers, and ephemeral containers,
+  and restricts their usage of volumes by  checking the `volume` name being used in
+  `volumeMounts[*].name`
+home: https://github.com/kubewarden/volumemounts-policy
+keywords:
+- container
+- volumeMounts
+- volume
+- pod
+- workload resources
+name: volumemounts
+sources:
+- ghcr.io/kubewarden/policies/volumemounts:v0.1.7
+version: 0.1.7
