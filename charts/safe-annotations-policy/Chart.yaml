@@ -1,0 +1,30 @@
+annotations:
+  artifacthub.io/repository: safe-annotations
+  catalog.cattle.io/hidden: "true"
+  catalog.cattle.io/type: kubewarden-policy
+  catalog.cattle.io/ui-component: kubewarden
+  kubewarden/displayName: Safe Annotations
+  kubewarden/mutation: "false"
+  kubewarden/registry: ghcr.io
+  kubewarden/repository: kubewarden/policies/safe-annotations
+  kubewarden/resources: '*'
+  kubewarden/rules: |
+    - apiGroups:
+      - '*'
+      apiVersions:
+      - '*'
+      resources:
+      - '*'
+      operations:
+      - CREATE
+      - UPDATE
+  kubewarden/tag: v0.2.10
+appVersion: 0.2.10
+description: A policy that validates Kubernetes' resource annotations
+home: https://github.com/kubewarden/safe-annotations-policy
+keywords:
+- annotations
+name: safe-annotations
+sources:
+- ghcr.io/kubewarden/policies/safe-annotations:v0.2.10
+version: 0.2.10
