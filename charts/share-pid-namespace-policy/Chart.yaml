@@ -1,0 +1,61 @@
+annotations:
+  artifacthub.io/repository: share-pid-namespace
+  catalog.cattle.io/hidden: "true"
+  catalog.cattle.io/type: kubewarden-policy
+  catalog.cattle.io/ui-component: kubewarden
+  kubewarden/displayName: Share PID namespace
+  kubewarden/mutation: "false"
+  kubewarden/registry: ghcr.io
+  kubewarden/repository: kubewarden/policies/share-pid-namespace-policy
+  kubewarden/resources: Pod,Replicationcontroller,Deployment,Replicaset,Statefulset,Daemonset,Job,Cronjob
+  kubewarden/rules: |
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      resources:
+      - pods
+      operations:
+      - CREATE
+    - apiGroups:
+      - ''
+      apiVersions:
+      - v1
+      resources:
+      - replicationcontrollers
+      operations:
+      - CREATE
+      - UPDATE
+    - apiGroups:
+      - apps
+      apiVersions:
+      - v1
+      resources:
+      - deployments
+      - replicasets
+      - statefulsets
+      - daemonsets
+      operations:
+      - CREATE
+      - UPDATE
+    - apiGroups:
+      - batch
+      apiVersions:
+      - v1
+      resources:
+      - jobs
+      - cronjobs
+      operations:
+      - CREATE
+      - UPDATE
+  kubewarden/tag: v0.1.1
+appVersion: 0.1.1
+description: Policy validates pods sharing processes PID namespace
+home: https://github.com/kubewarden/share-pid-namespace-policy
+keywords:
+- pod
+- pid
+name: share-pid-namespace-policy
+sources:
+- ghcr.io/kubewarden/policies/share-pid-namespace-policy:v0.1.1
+version: 0.1.1
