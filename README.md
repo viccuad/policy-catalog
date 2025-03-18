@@ -23,7 +23,8 @@ The workflow can be triggered in two ways:
      "client_payload": {
        "owner": "org-name",
        "repo": "repo-name",
-       "tag": "v1.0.0"
+       "tag": "v1.0.0",
+       "artifacthub-pkg": "path/to/artifacthub-pkg.yml" # Optional, defaults to `./artifacthub-pkg.yml`
      }
    }
    ```
