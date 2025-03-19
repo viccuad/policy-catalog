@@ -819,6 +819,43 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/flexvolume-drivers-psp-0.1.7/flexvolume-drivers-psp-0.1.7.tgz
     version: 0.1.7
+  helm-chart-cosign-verification:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: HelmChart Cosign Verification
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-chart-cosign-verification
+      kubewarden/resources: HelmChart
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - helmcharts
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:15:39.548268123Z"
+    description: HelmChart objects must provide cosign verification and reference
+      a secret containing the Cosign public keys of trusted authors
+    digest: f308ef3d88b072d537a48249cb3b218de121eb81d47c1afd75ad3d3d8f3cda03
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-chart-cosign-verification
+    sources:
+    - ghcr.io/kubewarden/policies/helm-chart-cosign-verification:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-chart-cosign-verification-1.0.0/helm-chart-cosign-verification-1.0.0.tgz
+    version: 1.0.0
   host-namespaces-psp:
   - annotations:
       artifacthub.io/repository: host-namespaces-psp
@@ -1946,4 +1983,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-03-18T13:57:04.064072492Z"
+generated: "2025-03-19T07:15:39.548278072Z"
