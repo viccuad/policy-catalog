@@ -1243,6 +1243,43 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/istio-injected-namespaces-1.0.0/istio-injected-namespaces-1.0.0.tgz
     version: 1.0.0
+  kustomization-images-requirement:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Kustomization Images Requirement
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/kustomization-images-requirement
+      kubewarden/resources: Kustomization
+      kubewarden/rules: |
+        - apiGroups:
+          - kustomize.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - kustomizations
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:19:52.510539805Z"
+    description: The 'spec.images' field in a Kustomization object must be enabled
+      or disabled based on the policy input images_required.
+    digest: a0fb38744d812d09f0b3ee9262c9b963a44c1b7deb3a7f9d36e02ff4dda19342
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: kustomization-images-requirement
+    sources:
+    - ghcr.io/kubewarden/policies/kustomization-images-requirement:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/kustomization-images-requirement-1.0.0/kustomization-images-requirement-1.0.0.tgz
+    version: 1.0.0
   kustomization-patches-requirement:
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
@@ -3170,4 +3207,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-03-19T07:16:58.328299848Z"
+generated: "2025-03-19T07:19:52.510560534Z"
