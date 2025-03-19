@@ -154,6 +154,42 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/allowed-proc-mount-types-psp-0.1.11/allowed-proc-mount-types-psp-0.1.11.tgz
     version: 0.1.11
+  bucket-insecure-connections:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Bucket Insecure Connections
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/bucket-insecure-connections
+      kubewarden/resources: Bucket
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - buckets
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:20:51.821766705Z"
+    description: Ensure that Bucket objects do not use insecure connections
+    digest: 96f39ccfe0b059b1b9ab5fa9ab39fc0ff4565089e3a14de2bfdafc59861c3f9e
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: bucket-insecure-connections
+    sources:
+    - ghcr.io/kubewarden/policies/bucket-insecure-connections:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/bucket-insecure-connections-1.0.0/bucket-insecure-connections-1.0.0.tgz
+    version: 1.0.0
   capabilities-psp:
   - annotations:
       artifacthub.io/repository: capabilities-psp
@@ -949,6 +985,151 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/flexvolume-drivers-psp-0.1.7/flexvolume-drivers-psp-0.1.7.tgz
     version: 0.1.7
+  gitrepository-ignore-suffixes:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: GitRepository Ignore Suffixes
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/gitrepository-ignore-suffixes
+      kubewarden/resources: GitRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - gitrepositories
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:20:51.963110996Z"
+    description: GitRepository resources must include specific suffixes in the spec.ignore
+      field which determines the files to be ignored before making a commit.
+    digest: 2eb267bff67388a8781e4d5ef6487f93a99bfdbe5e7ea636beb1797c3a312e2d
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: gitrepository-ignore-suffixes
+    sources:
+    - ghcr.io/kubewarden/policies/gitrepository-ignore-suffixes:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/gitrepository-ignore-suffixes-1.0.0/gitrepository-ignore-suffixes-1.0.0.tgz
+    version: 1.0.0
+  gitrepository-organization-domains:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: GitRepository Organization Domains
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/gitrepository-organization-domains
+      kubewarden/resources: GitRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - gitrepositories
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:20:52.067747431Z"
+    description: GitRepository resources must only be from allowed organization domains.
+    digest: e36d8fe26a2489b25cec991bc3d512b7b9dfd7071d09b0fec3da7bc9c89c6d3a
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: gitrepository-organization-domains
+    sources:
+    - ghcr.io/kubewarden/policies/gitrepository-organization-domains:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/gitrepository-organization-domains-1.0.0/gitrepository-organization-domains-1.0.0.tgz
+    version: 1.0.0
+  gitrepository-specific-branch:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: GitRepository Specific Branch
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/gitrepository-specific-branch
+      kubewarden/resources: GitRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - gitrepositories
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:20:52.198555025Z"
+    description: GitRepository resources must reference a specific branch, e.g. 'main'.
+    digest: d633ee8e5399d9f5fadb8eaa893d902ee9f95c8982e11b9b29f59a0c44dbc871
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: gitrepository-specific-branch
+    sources:
+    - ghcr.io/kubewarden/policies/gitrepository-specific-branch:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/gitrepository-specific-branch-1.0.0/gitrepository-specific-branch-1.0.0.tgz
+    version: 1.0.0
+  gitrepository-untrusted-domains:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: GitRepository Untrusted Domains
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/gitrepository-untrusted-domains
+      kubewarden/resources: GitRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - gitrepositories
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:20:52.331992238Z"
+    description: GitRepository resources must not use targets from untrusted domains.
+    digest: 8f1019b7d3b20a7e1edef66e51cf9ba89f00fefb0874fff6740cc277b9b172c7
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: gitrepository-untrusted-domains
+    sources:
+    - ghcr.io/kubewarden/policies/gitrepository-untrusted-domains:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/gitrepository-untrusted-domains-1.0.0/gitrepository-untrusted-domains-1.0.0.tgz
+    version: 1.0.0
   helm-chart-cosign-verification:
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
@@ -986,6 +1167,42 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/helm-chart-cosign-verification-1.0.0/helm-chart-cosign-verification-1.0.0.tgz
     version: 1.0.0
+  helm-chart-values-files-format:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: HelmChart Values File Format
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-chart-values-files-format
+      kubewarden/resources: HelmChart
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - helmcharts
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:20:52.466064808Z"
+    description: 'HelmChart must reference values files in the following format: ''xxx=values.yaml''.'
+    digest: ac5662aece44c575442fedb7c3bb56de2425a6f4fc715995c9ac86151cfbb9bb
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-chart-values-files-format
+    sources:
+    - ghcr.io/kubewarden/policies/helm-chart-values-files-format:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-chart-values-files-format-1.0.0/helm-chart-values-files-format-1.0.0.tgz
+    version: 1.0.0
   helm-release-max-history:
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
@@ -1021,6 +1238,115 @@ entries:
     - ghcr.io/kubewarden/policies/helm-release-max-history:v1.0.0
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-max-history-1.0.0/helm-release-max-history-1.0.0.tgz
+    version: 1.0.0
+  helm-release-namespace-match:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Helm Release Namespace Match
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-release-namespace-match
+      kubewarden/resources: HelmRelease
+      kubewarden/rules: |
+        - apiGroups:
+          - helm.toolkit.fluxcd.io
+          apiVersions:
+          - v2
+          resources:
+          - helmreleases
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:20:52.589991727Z"
+    description: HelmRelease storageNamespace and targetNamespace must match.
+    digest: 99d89f0708c6a9a9041fa1acb6848bdfed12964c09139666f1b62957c56fea84
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-release-namespace-match
+    sources:
+    - ghcr.io/kubewarden/policies/helm-release-namespace-match:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-namespace-match-1.0.0/helm-release-namespace-match-1.0.0.tgz
+    version: 1.0.0
+  helm-release-post-renderer:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Helm Release Post Renderer
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-release-post-renderer
+      kubewarden/resources: HelmRelease
+      kubewarden/rules: |
+        - apiGroups:
+          - helm.toolkit.fluxcd.io
+          apiVersions:
+          - v2
+          resources:
+          - helmreleases
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:20:52.722550637Z"
+    description: HelmRelease must not have post-renderers enabled.
+    digest: 98283adf0eb4185422ff48f648ee8a06ddfe3451fd9dd37793b0b04ddfbcffbd
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-release-post-renderer
+    sources:
+    - ghcr.io/kubewarden/policies/helm-release-post-renderer:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-post-renderer-1.0.0/helm-release-post-renderer-1.0.0.tgz
+    version: 1.0.0
+  helm-release-remediation-retries:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Helm Release Remediation Retries
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-release-remediation-retries
+      kubewarden/resources: HelmRelease
+      kubewarden/rules: |
+        - apiGroups:
+          - helm.toolkit.fluxcd.io
+          apiVersions:
+          - v2
+          resources:
+          - helmreleases
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:20:52.885044731Z"
+    description: HelmRelease remediation retries must be within the specified lower
+      and upper bounds.
+    digest: 534280917d6a65bd930cb7f08966667af5b9baaeee0a247dc456ab27ac0d0d42
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-release-remediation-retries
+    sources:
+    - ghcr.io/kubewarden/policies/helm-release-remediation-retries:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-remediation-retries-1.0.0/helm-release-remediation-retries-1.0.0.tgz
     version: 1.0.0
   helm-release-rollback:
   - annotations:
@@ -3606,4 +3932,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-03-19T07:20:30.841407908Z"
+generated: "2025-03-19T07:20:52.885062926Z"
