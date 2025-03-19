@@ -1,5 +1,64 @@
 apiVersion: v1
 entries:
+  affinity-node-selector:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Affinity Node Selector
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/affinity-node-selector
+      kubewarden/resources: CronJob, DaemonSet, Deployment, Job, Pod, StatefulSet
+      kubewarden/rules: |
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - cronjobs
+          - jobs
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - daemonsets
+          - deployments
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - pods
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:21:53.297975157Z"
+    description: 'This Policy allows setting a key and value for `nodeSelector` when
+      assigning pods to nodes.   `nodeSelector` is a field of PodSpec. It specifies
+      a map of key-value pairs. For the pod to be eligible to scheduled on a node,
+      the node must have each of the indicated key-value pairs as labels (it can have
+      additional labels as well).  '
+    digest: c82f4bb09106730b0bf6ef9d9bac825113f0dc262661e706b1a9583e8a095fc9
+    home: https://github.com/kubewarden/rego-policies-library
+    name: affinity-node-selector
+    sources:
+    - ghcr.io/kubewarden/policies/affinity-node-selector:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/affinity-node-selector-1.0.0/affinity-node-selector-1.0.0.tgz
+    version: 1.0.0
   allow-privilege-escalation-psp:
   - annotations:
       artifacthub.io/repository: allow-privilege-escalation-psp
@@ -431,6 +490,136 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/cel-policy-1.2.2/cel-policy-1.2.2.tgz
     version: 1.2.2
+  container-block-sysctl:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Container Block Sysctls
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/container-block-sysctl
+      kubewarden/resources: Deployment, Job, ReplicationController, ReplicaSet, DaemonSet,
+        StatefulSet, CronJob
+      kubewarden/rules: |
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - daemonsets
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:21:53.439420045Z"
+    description: 'Setting sysctls can allow containers unauthorized escalated privileges
+      to a Kubernetes node.  '
+    digest: 0f7faab224dff39d57ce7cfb561983deaa1cfd5df1c33c47b2bb9b4b95f70cbc
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - pci-dss
+    - cis-benchmark
+    - mitre-attack
+    - nist800-190
+    - gdpr
+    - default
+    name: container-block-sysctl
+    sources:
+    - ghcr.io/kubewarden/policies/container-block-sysctl:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/container-block-sysctl-1.0.0/container-block-sysctl-1.0.0.tgz
+    version: 1.0.0
+  container-block-sysctl.cve-2022-0811:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Container Block Sysctls CVE-2022-0811
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/container-block-sysctl.cve-2022-0811
+      kubewarden/resources: Deployment, Job, ReplicationController, ReplicaSet, DaemonSet,
+        StatefulSet, CronJob
+      kubewarden/rules: |
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - daemonsets
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:21:53.567491946Z"
+    description: 'Setting sysctls can allow containers unauthorized escalated privileges
+      to a Kubernetes node.  '
+    digest: eef844e947a01bd1cfe4282a94b0df801880c9d9890f02d6de33b50fb89bd4fb
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - pci-dss
+    - cis-benchmark
+    - mitre-attack
+    - nist800-190
+    - gdpr
+    - default
+    name: container-block-sysctl.cve-2022-0811
+    sources:
+    - ghcr.io/kubewarden/policies/container-block-sysctl.cve-2022-0811:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/container-block-sysctl.cve-2022-0811-1.0.0/container-block-sysctl.cve-2022-0811-1.0.0.tgz
+    version: 1.0.0
   container-resources:
   - annotations:
       artifacthub.io/repository: container-resources
@@ -500,6 +689,73 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/container-resources-0.3.0/container-resources-0.3.0.tgz
     version: 0.3.0
+  container-running-as-root:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Container Running As Root
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/container-running-as-root
+      kubewarden/resources: Deployment, Job, ReplicationController, ReplicaSet, DaemonSet,
+        StatefulSet, CronJob
+      kubewarden/rules: |
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - daemonsets
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:21:53.690052154Z"
+    description: 'Running as root gives the container full access to all resources
+      in the VM it is running on. Containers should not run with such access rights
+      unless required by design. This Policy enforces that the `securityContext.runAsNonRoot`
+      attribute is set to `true`.  '
+    digest: 9e2f87ab60f47f8ecfebde197a98e413c9975ca47416f08e6be397f3c010c478
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - pci-dss
+    - cis-benchmark
+    - mitre-attack
+    - nist800-190
+    - gdpr
+    - default
+    name: container-running-as-root
+    sources:
+    - ghcr.io/kubewarden/policies/container-running-as-root:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/container-running-as-root-1.0.0/container-running-as-root-1.0.0.tgz
+    version: 1.0.0
   container-running-as-user:
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
@@ -624,6 +880,65 @@ entries:
     - ghcr.io/kubewarden/policies/containers-block-specific-image-names:v1.0.0
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/containers-block-specific-image-names-1.0.0/containers-block-specific-image-names-1.0.0.tgz
+    version: 1.0.0
+  containers-block-ssh-port:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Containers Block Ssh Port
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/containers-block-ssh-port
+      kubewarden/resources: Deployment, Job, ReplicationController, ReplicaSet, DaemonSet,
+        StatefulSet, CronJob
+      kubewarden/rules: |
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - daemonsets
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:21:53.801594858Z"
+    description: 'This Policy checks if the container is exposing ssh port. '
+    digest: 2944f63933054f6986544910f4861fa77e5995c4c4e125486dc8869d149bb508
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - pci-dss
+    name: containers-block-ssh-port
+    sources:
+    - ghcr.io/kubewarden/policies/containers-block-ssh-port:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/containers-block-ssh-port-1.0.0/containers-block-ssh-port-1.0.0.tgz
     version: 1.0.0
   containers-missing-security-context:
   - annotations:
@@ -4768,4 +5083,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-03-19T07:21:36.433206389Z"
+generated: "2025-03-19T07:21:53.801627048Z"
