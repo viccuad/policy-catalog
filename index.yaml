@@ -334,6 +334,67 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/container-resources-0.3.0/container-resources-0.3.0.tgz
     version: 0.3.0
+  containers-should-not-run-in-namespace:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Containers Should Not Run In Namespace
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/containers-should-not-run-in-namespace
+      kubewarden/resources: Pod, Deployment, Job, ReplicationController, ReplicaSet,
+        DaemonSet, StatefulSet, CronJob
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - pods
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - daemonsets
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:16:00.688871781Z"
+    description: 'This Policy ensure workloads are not running in a specified namespace.  '
+    digest: 78aee949e0e87ec86e4bab864c183c29e6fbf482fcb32d6a243c30a9677b86e7
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - cis-benchmark
+    - soc2-type1
+    name: containers-should-not-run-in-namespace
+    sources:
+    - ghcr.io/kubewarden/policies/containers-should-not-run-in-namespace:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/containers-should-not-run-in-namespace-1.0.0/containers-should-not-run-in-namespace-1.0.0.tgz
+    version: 1.0.0
   deprecated-api-versions:
   - annotations:
       artifacthub.io/repository: deprecated-api-versions-policy
@@ -1006,6 +1067,42 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/ingress-unique-host-0.1.5/ingress-unique-host-0.1.5.tgz
     version: 0.1.5
+  istio-injected-namespaces:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Istio Injected Namespaces
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/istio-injected-namespaces
+      kubewarden/resources: Namespace
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - namespaces
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:16:00.877583006Z"
+    description: '# Istio-Injected Namespaces Specify namespaces you would like to
+      be labeld with `istio-injected: enabled`. Namespaces with this label with automatically
+      deploy a Istio sidecar with each pod.  '
+    digest: 437152a55f71dbe6fe9922d256f2701c7e98644aa7370b54d0578231dfae37c6
+    home: https://github.com/kubewarden/rego-policies-library
+    name: istio-injected-namespaces
+    sources:
+    - ghcr.io/kubewarden/policies/istio-injected-namespaces:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/istio-injected-namespaces-1.0.0/istio-injected-namespaces-1.0.0.tgz
+    version: 1.0.0
   namespace-label-propagator-policy:
   - annotations:
       artifacthub.io/repository: namespace-label-propagator-policy
@@ -1073,6 +1170,40 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/namespace-label-propagator-policy-0.1.5/namespace-label-propagator-policy-0.1.5.tgz
     version: 0.1.5
+  persistent-volume-claim-snapshot:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Persistent Volume Claim Snapshot
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/persistent-volume-claim-snapshot
+      kubewarden/resources: VolumeSnapshot
+      kubewarden/rules: |
+        - apiGroups:
+          - snapshot.storage.k8s.io
+          apiVersions:
+          - v1
+          resources:
+          - volumesnapshots
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:16:01.057229017Z"
+    description: 'This Policy checks for a PVC Snapshot.  '
+    digest: 61392bf065a405a25c5cc0dd18c2b78d10788ba8acceb3d73c62b5f13faa362b
+    home: https://github.com/kubewarden/rego-policies-library
+    name: persistent-volume-claim-snapshot
+    sources:
+    - ghcr.io/kubewarden/policies/persistent-volume-claim-snapshot:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/persistent-volume-claim-snapshot-1.0.0/persistent-volume-claim-snapshot-1.0.0.tgz
+    version: 1.0.0
   persistentvolumeclaim-storageclass-policy:
   - annotations:
       artifacthub.io/repository: pvc-storageclass-validator
@@ -1332,6 +1463,78 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/psp-apparmor-0.1.13/psp-apparmor-0.1.13.tgz
     version: 0.1.13
+  rbac-prohibit-list-secrets:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Rbac Prohibit List On Secrets
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/rbac-prohibit-list-secrets
+      kubewarden/resources: Role, ClusterRole
+      kubewarden/rules: |
+        - apiGroups:
+          - rbac.authorization.k8s.io
+          apiVersions:
+          - v1
+          resources:
+          - roles
+          - clusterroles
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:16:01.273156873Z"
+    description: 'This Policy will violate if any RBAC ClusterRoles or Roles are designated
+      with ''list'' verb on ''secrets'' resource. '
+    digest: 39328e78742325064c4a5eec0b67e8d230cb580ff474e6def7ffcbcc3d3edf2f
+    home: https://github.com/kubewarden/rego-policies-library
+    name: rbac-prohibit-list-secrets
+    sources:
+    - ghcr.io/kubewarden/policies/rbac-prohibit-list-secrets:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/rbac-prohibit-list-secrets-1.0.0/rbac-prohibit-list-secrets-1.0.0.tgz
+    version: 1.0.0
+  rbac-prohibit-wildcard-secrets:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Rbac Prohibit Wildcard On Secrets
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/rbac-prohibit-wildcard-secrets
+      kubewarden/resources: Role, ClusterRole
+      kubewarden/rules: |
+        - apiGroups:
+          - rbac.authorization.k8s.io
+          apiVersions:
+          - v1
+          resources:
+          - roles
+          - clusterroles
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:16:01.470242743Z"
+    description: 'This Policy will violate if any RBAC ClusterRoles or Roles are designated
+      with ''wildcard'' verb on ''secrets'' resource. '
+    digest: 076f1cb161cba7aa4ae4cefb23f6bb9be3bbe6f11ad64d4016fce397d1f94d80
+    home: https://github.com/kubewarden/rego-policies-library
+    name: rbac-prohibit-wildcard-secrets
+    sources:
+    - ghcr.io/kubewarden/policies/rbac-prohibit-wildcard-secrets:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/rbac-prohibit-wildcard-secrets-1.0.0/rbac-prohibit-wildcard-secrets-1.0.0.tgz
+    version: 1.0.0
   readonly-root-filesystem-psp:
   - annotations:
       artifacthub.io/repository: readonly-root-filesystem-psp
@@ -1371,6 +1574,43 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/readonly-root-filesystem-psp-0.1.6/readonly-root-filesystem-psp-0.1.6.tgz
     version: 0.1.6
+  resource-quota-setting-is-missing:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Resource Quota Setting Is Missing
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/resource-quota-setting-is-missing
+      kubewarden/resources: ResourceQuota
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - resourcequotas
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:16:01.663429461Z"
+    description: 'When creating resource quotas per namespace, ensure CPU and Memory
+      requests and limits are set. '
+    digest: c29b1a14b7b8523193fe278f99f641df3c59624dc82db5dfd6c906d3265fef7c
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - soc2-type1
+    name: resource-quota-setting-is-missing
+    sources:
+    - ghcr.io/kubewarden/policies/resource-quota-setting-is-missing:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/resource-quota-setting-is-missing-1.0.0/resource-quota-setting-is-missing-1.0.0.tgz
+    version: 1.0.0
   safe-annotations:
   - annotations:
       artifacthub.io/repository: safe-annotations
@@ -1983,4 +2223,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-03-19T07:15:39.548278072Z"
+generated: "2025-03-19T07:16:01.663443518Z"
