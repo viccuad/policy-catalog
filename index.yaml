@@ -986,6 +986,42 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/helm-chart-cosign-verification-1.0.0/helm-chart-cosign-verification-1.0.0.tgz
     version: 1.0.0
+  helm-release-rollback:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Helm Release Rollback Should Be Disabled
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-release-rollback
+      kubewarden/resources: HelmRelease
+      kubewarden/rules: |
+        - apiGroups:
+          - helm.toolkit.fluxcd.io
+          apiVersions:
+          - v2
+          resources:
+          - helmreleases
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:20:07.786171002Z"
+    description: The rollback feature of a HelmRelease should be disabled.
+    digest: 6d62aaf0f5d28213a8ca7d48fb23711602622a531cbd4745840d77d190e6d3f2
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-release-rollback
+    sources:
+    - ghcr.io/kubewarden/policies/helm-release-rollback:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-rollback-1.0.0/helm-release-rollback-1.0.0.tgz
+    version: 1.0.0
   helm-release-storage-namespace:
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
@@ -1021,6 +1057,79 @@ entries:
     - ghcr.io/kubewarden/policies/helm-release-storage-namespace:v1.0.0
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-storage-namespace-1.0.0/helm-release-storage-namespace-1.0.0.tgz
+    version: 1.0.0
+  helm-repo-type:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Helm Repo Type Should Be OCI
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-repo-type
+      kubewarden/resources: HelmRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - helmrepositories
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:20:07.944121082Z"
+    description: The type of a Helm repository should be OCI.
+    digest: c913f2cdb36126bfc0d0f487743cd7c31f42ea2b4cf28c93be1adf62ffdf5432
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-repo-type
+    sources:
+    - ghcr.io/kubewarden/policies/helm-repo-type:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-repo-type-1.0.0/helm-repo-type-1.0.0.tgz
+    version: 1.0.0
+  helm-repo-url:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Helm Repo URL Should Be in Organisation Domain
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-repo-url
+      kubewarden/resources: HelmRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - helmrepositories
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:20:08.082817311Z"
+    description: The URL of a Helm repository should only be from the specified organisation
+      domain.
+    digest: 0015d7884bb28356fe8fbcbeea2f6235ffd9ccda5aedf60e4d2b85b5ac9cca59
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-repo-url
+    sources:
+    - ghcr.io/kubewarden/policies/helm-repo-url:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-repo-url-1.0.0/helm-repo-url-1.0.0.tgz
     version: 1.0.0
   host-namespaces-psp:
   - annotations:
@@ -1243,6 +1352,42 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/istio-injected-namespaces-1.0.0/istio-injected-namespaces-1.0.0.tgz
     version: 1.0.0
+  kustomization-decryption-provider:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Kustomization Decryption Provider
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/kustomization-decryption-provider
+      kubewarden/resources: Kustomization
+      kubewarden/rules: |
+        - apiGroups:
+          - kustomize.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - kustomizations
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:20:08.293686367Z"
+    description: Spec.decryption.provider must be set to one of decryption_providers.
+    digest: d23325df6f3a7c23009182d85d8b65afa5e0abc12c9d5275d6c7ff3dbe220a3b
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: kustomization-decryption-provider
+    sources:
+    - ghcr.io/kubewarden/policies/kustomization-decryption-provider:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/kustomization-decryption-provider-1.0.0/kustomization-decryption-provider-1.0.0.tgz
+    version: 1.0.0
   kustomization-images-requirement:
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
@@ -1352,6 +1497,43 @@ entries:
     - ghcr.io/kubewarden/policies/kustomization-prune:v1.0.0
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/kustomization-prune-1.0.0/kustomization-prune-1.0.0.tgz
+    version: 1.0.0
+  kustomization-target-namespace:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Kustomization Target Namespace
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/kustomization-target-namespace
+      kubewarden/resources: Kustomization
+      kubewarden/rules: |
+        - apiGroups:
+          - kustomize.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - kustomizations
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:20:08.425426841Z"
+    description: Kustomization targetNamespace must be one of the allowed targetNamespace
+      list.
+    digest: 984ebbef5b43bfa20f640f2a016ba0d3c04e8fbcc3c0c77213587b1483757640
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: kustomization-target-namespace
+    sources:
+    - ghcr.io/kubewarden/policies/kustomization-target-namespace:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/kustomization-target-namespace-1.0.0/kustomization-target-namespace-1.0.0.tgz
     version: 1.0.0
   kustomization-var-substitution:
   - annotations:
@@ -3207,4 +3389,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-03-19T07:19:52.510560534Z"
+generated: "2025-03-19T07:20:08.425452539Z"
