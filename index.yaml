@@ -334,6 +334,75 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/container-resources-0.3.0/container-resources-0.3.0.tgz
     version: 0.3.0
+  container-running-as-user:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Container Running As User
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/container-running-as-user
+      kubewarden/resources: Deployment, Job, ReplicationController, ReplicaSet, DaemonSet,
+        StatefulSet, CronJob
+      kubewarden/rules: |
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - daemonsets
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:16:22.76259003Z"
+    description: 'Containers has a feature in which you specify the ID of the user
+      which all processes in the container will run with. This Policy enforces that
+      the `securityContext.runAsUser` attribute is set to a uid greater than root
+      uid. Running as root user gives the container full access to all resources in
+      the VM it is running on. Containers should not run with such access rights unless
+      required by design.  '
+    digest: 3dcf2defd92e9e5a30ce0c5fd773473ca4f167d9660e78c1b3874e9276b9bb72
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - pci-dss
+    - cis-benchmark
+    - mitre-attack
+    - nist800-190
+    - gdpr
+    - default
+    name: container-running-as-user
+    sources:
+    - ghcr.io/kubewarden/policies/container-running-as-user:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/container-running-as-user-1.0.0/container-running-as-user-1.0.0.tgz
+    version: 1.0.0
   containers-should-not-run-in-namespace:
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
@@ -1170,6 +1239,193 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/namespace-label-propagator-policy-0.1.5/namespace-label-propagator-policy-0.1.5.tgz
     version: 0.1.5
+  namespace-pod-quota:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Namespace Pod Quota
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/namespace-pod-quota
+      kubewarden/resources: ResourceQuota
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - resourcequotas
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:16:22.891500311Z"
+    description: 'When using a pod quota ensure setting the proper value for the quantity
+      of pods you wish to have in your namespace.  '
+    digest: d6ea51ded9ac94a0d5a55786cf6d435434895a789cb4150c266cfbdd407c59eb
+    home: https://github.com/kubewarden/rego-policies-library
+    name: namespace-pod-quota
+    sources:
+    - ghcr.io/kubewarden/policies/namespace-pod-quota:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/namespace-pod-quota-1.0.0/namespace-pod-quota-1.0.0.tgz
+    version: 1.0.0
+  network-allow-egress-traffic-from-namespace-to-another:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Network Allow Egress Traffic From Namespace To Another
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/network-allow-egress-traffic-from-namespace-to-another
+      kubewarden/resources: NetworkPolicy
+      kubewarden/rules: |
+        - apiGroups:
+          - networking.k8s.io
+          apiVersions:
+          - v1
+          resources:
+          - networkpolicies
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:16:23.006925474Z"
+    description: 'If you are using a CNI that allows for Network Policies, you can
+      use this Policy to allow Egress traffic from one namespace to another.  By default,
+      if no policies exist in a namespace, then all ingress and egress traffic is
+      allowed to and from pods in that namespace.  '
+    digest: 7ccffca782a72e659cd4d2cb474fcc6a29f0024d1a49206b39a889152fa8e7be
+    home: https://github.com/kubewarden/rego-policies-library
+    name: network-allow-egress-traffic-from-namespace-to-another
+    sources:
+    - ghcr.io/kubewarden/policies/network-allow-egress-traffic-from-namespace-to-another:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/network-allow-egress-traffic-from-namespace-to-another-1.0.0/network-allow-egress-traffic-from-namespace-to-another-1.0.0.tgz
+    version: 1.0.0
+  network-allow-ingress-traffic-from-namespace-to-another:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Network Allow Ingress Traffic From Namespace To Another
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/network-allow-ingress-traffic-from-namespace-to-another
+      kubewarden/resources: NetworkPolicy
+      kubewarden/rules: |
+        - apiGroups:
+          - networking.k8s.io
+          apiVersions:
+          - v1
+          resources:
+          - networkpolicies
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:16:23.149494194Z"
+    description: 'If you are using a CNI that allows for Network Policies, you can
+      use this Policy to allow Ingress traffic from one namespace to another.  By
+      default, if no policies exist in a namespace, then all ingress and egress traffic
+      is allowed to and from pods in that namespace.  '
+    digest: 54125dd42950407733cd6a13ccaa19aa02b697fa4be262414c61541b6d533e7b
+    home: https://github.com/kubewarden/rego-policies-library
+    name: network-allow-ingress-traffic-from-namespace-to-another
+    sources:
+    - ghcr.io/kubewarden/policies/network-allow-ingress-traffic-from-namespace-to-another:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/network-allow-ingress-traffic-from-namespace-to-another-1.0.0/network-allow-ingress-traffic-from-namespace-to-another-1.0.0.tgz
+    version: 1.0.0
+  network-block-all-ingress-traffic-to-namespace-from-cidr-block:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Network Block All Ingress Traffic To Namespace From
+        CIDR Block
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/network-block-all-ingress-traffic-to-namespace-from-cidr-block
+      kubewarden/resources: NetworkPolicy
+      kubewarden/rules: |
+        - apiGroups:
+          - networking.k8s.io
+          apiVersions:
+          - v1
+          resources:
+          - networkpolicies
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:16:23.276293024Z"
+    description: 'If you are using a CNI that allows for Network Policies, you can
+      use this Policy to block all Egress traffic from a specified namespace to a
+      CIDR block of IP addresses.   By default, if no policies exist in a namespace,
+      then all ingress and egress traffic is allowed to and from pods in that namespace.  '
+    digest: 45f3da9e0aa72e7b59093b3cdc9c770809ba0328aff176dd1f935cb6b0173010
+    home: https://github.com/kubewarden/rego-policies-library
+    name: network-block-all-ingress-traffic-to-namespace-from-cidr-block
+    sources:
+    - ghcr.io/kubewarden/policies/network-block-all-ingress-traffic-to-namespace-from-cidr-block:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/network-block-all-ingress-traffic-to-namespace-from-cidr-block-1.0.0/network-block-all-ingress-traffic-to-namespace-from-cidr-block-1.0.0.tgz
+    version: 1.0.0
+  persistent-volume-access-modes:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Persistent Volume Access Modes
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/persistent-volume-access-modes
+      kubewarden/resources: PersistentVolume
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - persistentvolumes
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:16:23.395024719Z"
+    description: 'A PersistentVolume can be mounted on a host in any way supported
+      by the resource provider. As shown in the table below, providers will have different
+      capabilities and each PV''s access modes are set to the specific modes supported
+      by that particular volume. For example, NFS can support multiple read/write
+      clients, but a specific NFS PV might be exported on the server as read-only.
+      Each PV gets its own set of access modes describing that specific PV''s capabilities.  The
+      access modes are:  * ReadWriteOnce * ReadOnlyMany * ReadWriteMany * ReadWriteOncePod '
+    digest: cb5e4e3d33f5dc180af13f4391c030b2db027ff4ba0f10e4e990cf5037163061
+    home: https://github.com/kubewarden/rego-policies-library
+    name: persistent-volume-access-modes
+    sources:
+    - ghcr.io/kubewarden/policies/persistent-volume-access-modes:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/persistent-volume-access-modes-1.0.0/persistent-volume-access-modes-1.0.0.tgz
+    version: 1.0.0
   persistent-volume-claim-snapshot:
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
@@ -1499,6 +1755,42 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/rbac-prohibit-list-secrets-1.0.0/rbac-prohibit-list-secrets-1.0.0.tgz
     version: 1.0.0
+  rbac-prohibit-watch-secrets:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Rbac Prohibit Watch On Secrets
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/rbac-prohibit-watch-secrets
+      kubewarden/resources: Role, ClusterRole
+      kubewarden/rules: |
+        - apiGroups:
+          - rbac.authorization.k8s.io
+          apiVersions:
+          - v1
+          resources:
+          - roles
+          - clusterroles
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:16:23.510107703Z"
+    description: 'This Policy will violate if any RBAC ClusterRoles or Roles are designated
+      with ''watch'' verb on ''secrets'' resource. '
+    digest: 8bdb02231c4849741bf256fbc9e23d1588dcd27c534b87267fd3c297c2f8ec03
+    home: https://github.com/kubewarden/rego-policies-library
+    name: rbac-prohibit-watch-secrets
+    sources:
+    - ghcr.io/kubewarden/policies/rbac-prohibit-watch-secrets:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/rbac-prohibit-watch-secrets-1.0.0/rbac-prohibit-watch-secrets-1.0.0.tgz
+    version: 1.0.0
   rbac-prohibit-wildcard-secrets:
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
@@ -1534,6 +1826,98 @@ entries:
     - ghcr.io/kubewarden/policies/rbac-prohibit-wildcard-secrets:v1.0.0
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/rbac-prohibit-wildcard-secrets-1.0.0/rbac-prohibit-wildcard-secrets-1.0.0.tgz
+    version: 1.0.0
+  rbac-prohibit-wildcards-policyrule-resources:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Rbac Prohibit Wildcards on Policy Rule Resources
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/rbac-prohibit-wildcards-policyrule-resources
+      kubewarden/resources: Role, ClusterRole
+      kubewarden/rules: |
+        - apiGroups:
+          - rbac.authorization.k8s.io
+          apiVersions:
+          - v1
+          resources:
+          - roles
+          - clusterroles
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:16:23.60860209Z"
+    description: 'This Policy prohibits various resources from being set with wildcards
+      for Role or ClusterRole resources, except for the `cluster-admin` ClusterRole.
+      It will check each resource specified for the verb specified. The wildcards
+      will be checked in:  ### Resources In the Kubernetes API, most resources are
+      represented and accessed using a string representation of their object name,
+      such as pods for a Pod. RBAC refers to resources using exactly the same name
+      that appears in the URL for the relevant API endpoint.   ### Verbs API verbs
+      like get, list, create, update, patch, watch, delete, and deletecollection are
+      used for resource requests.   ### API Groups The API Group being accessed (for
+      resource requests only).  ### Non Resource URLs Requests to endpoints other
+      than /api/v1/... or /apis/<group>/<version>/... are considered "non-resource
+      requests", and use the lower-cased HTTP method of the request as the verb. '
+    digest: 0dddff03145febd665baf2701f8f19c7f6b243bb3e77a66bf4d8de1801dcc833
+    home: https://github.com/kubewarden/rego-policies-library
+    name: rbac-prohibit-wildcards-policyrule-resources
+    sources:
+    - ghcr.io/kubewarden/policies/rbac-prohibit-wildcards-policyrule-resources:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/rbac-prohibit-wildcards-policyrule-resources-1.0.0/rbac-prohibit-wildcards-policyrule-resources-1.0.0.tgz
+    version: 1.0.0
+  rbac-prohibit-wildcards-policyrule-verbs:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Rbac Prohibit Wildcards on Policy Rule Verbs
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/rbac-prohibit-wildcards-policyrule-verbs
+      kubewarden/resources: Role, ClusterRole
+      kubewarden/rules: |
+        - apiGroups:
+          - rbac.authorization.k8s.io
+          apiVersions:
+          - v1
+          resources:
+          - roles
+          - clusterroles
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:16:23.730674322Z"
+    description: 'This Policy prohibits various resources from being set with wildcards
+      for Role or ClusterRole resources, except for the `cluster-admin` ClusterRole.
+      It will check each resource specified for the verb specified. The wildcards
+      will be checked in:  ### Resources In the Kubernetes API, most resources are
+      represented and accessed using a string representation of their object name,
+      such as pods for a Pod. RBAC refers to resources using exactly the same name
+      that appears in the URL for the relevant API endpoint.   ### Verbs API verbs
+      like get, list, create, update, patch, watch, delete, and deletecollection are
+      used for resource requests.   ### API Groups The API Group being accessed (for
+      resource requests only).  ### Non Resource URLs Requests to endpoints other
+      than /api/v1/... or /apis/<group>/<version>/... are considered "non-resource
+      requests", and use the lower-cased HTTP method of the request as the verb. '
+    digest: 24eac4b1205ee46ba26bf44f8285d266413ab59fffd2d30c3afa385ecfc05e80
+    home: https://github.com/kubewarden/rego-policies-library
+    name: rbac-prohibit-wildcards-policyrule-verbs
+    sources:
+    - ghcr.io/kubewarden/policies/rbac-prohibit-wildcards-policyrule-verbs:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/rbac-prohibit-wildcards-policyrule-verbs-1.0.0/rbac-prohibit-wildcards-policyrule-verbs-1.0.0.tgz
     version: 1.0.0
   readonly-root-filesystem-psp:
   - annotations:
@@ -2223,4 +2607,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-03-19T07:16:01.663443518Z"
+generated: "2025-03-19T07:16:23.730699048Z"
