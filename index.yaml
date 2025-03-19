@@ -1136,6 +1136,41 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/ingress-unique-host-0.1.5/ingress-unique-host-0.1.5.tgz
     version: 0.1.5
+  istio-gateway-approved-hosts:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Istio Gateway Approved Hosts
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/istio-gateway-approved-hosts
+      kubewarden/resources: Gateway
+      kubewarden/rules: |
+        - apiGroups:
+          - networking.istio.io
+          apiVersions:
+          - v1
+          resources:
+          - gateways
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:16:40.265597125Z"
+    description: '### Istio Gateway Approved Hosts This ensures you are only serving
+      traffic for approved hostnames.  '
+    digest: fc18d3a5f5638b33e30d60c5e9f737e833c7c302a1ae852ad95ca96aab2a6d7f
+    home: https://github.com/kubewarden/rego-policies-library
+    name: istio-gateway-approved-hosts
+    sources:
+    - ghcr.io/kubewarden/policies/istio-gateway-approved-hosts:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/istio-gateway-approved-hosts-1.0.0/istio-gateway-approved-hosts-1.0.0.tgz
+    version: 1.0.0
   istio-injected-namespaces:
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
@@ -1274,6 +1309,46 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/namespace-pod-quota-1.0.0/namespace-pod-quota-1.0.0.tgz
     version: 1.0.0
+  namespace-resources-limitrange:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Namespace Resources Limitrange
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/namespace-resources-limitrange
+      kubewarden/resources: LimitRange
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - limitranges
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:16:40.393920427Z"
+    description: 'When setting up default CPU and Memory values for your namespace,
+      this policy will check if both requests and limits are set. This policy checks
+      for the following:  | Resource Setting | Resource Type  | |---|---| |  default
+      | cpu  | |  default  | memory  | |  defaultRequest |  cpu | |  defaultRequest
+      | memory  | |  min | memory  | |  min | cpu  | |  max | cpu | |  max | memory  | '
+    digest: dd5f1ca934724fc82e7770a9cd37753f5edf1f4af59700bc56dee4fdfd0cadce
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - soc2-type1
+    name: namespace-resources-limitrange
+    sources:
+    - ghcr.io/kubewarden/policies/namespace-resources-limitrange:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/namespace-resources-limitrange-1.0.0/namespace-resources-limitrange-1.0.0.tgz
+    version: 1.0.0
   network-allow-egress-traffic-from-namespace-to-another:
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
@@ -1385,6 +1460,118 @@ entries:
     - ghcr.io/kubewarden/policies/network-block-all-ingress-traffic-to-namespace-from-cidr-block:v1.0.0
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/network-block-all-ingress-traffic-to-namespace-from-cidr-block-1.0.0/network-block-all-ingress-traffic-to-namespace-from-cidr-block-1.0.0.tgz
+    version: 1.0.0
+  ocirepository-ignore-suffixes:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: OCIRepository Ignore Suffixes
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/ocirepository-ignore-suffixes
+      kubewarden/resources: OCIRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1beta2
+          resources:
+          - ocirepositories
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:16:40.503615297Z"
+    description: OCIRepository resources must include specific suffixes in the spec.ignore
+      field which determines the files to be ignored before making a commit..
+    digest: ea8766377aeafbb810001a8ddbb38266e79d1c8cdb8ef7ca0af7d0ffc2c5f739
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    - oci
+    - suffixes
+    name: ocirepository-ignore-suffixes
+    sources:
+    - ghcr.io/kubewarden/policies/ocirepository-ignore-suffixes:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/ocirepository-ignore-suffixes-1.0.0/ocirepository-ignore-suffixes-1.0.0.tgz
+    version: 1.0.0
+  ocirepository-not-latest:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: OCIRepository Not Latest Tag
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/ocirepository-not-latest
+      kubewarden/resources: OCIRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1beta2
+          resources:
+          - ocirepositories
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:16:40.636275532Z"
+    description: OCIRepository resources must not use 'latest' as a tag reference.
+    digest: 1540a063276c0d041209c49ed52a17066d13911672d03ecfda09e29ceefb46b4
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: ocirepository-not-latest
+    sources:
+    - ghcr.io/kubewarden/policies/ocirepository-not-latest:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/ocirepository-not-latest-1.0.0/ocirepository-not-latest-1.0.0.tgz
+    version: 1.0.0
+  ocirepository-patch-annotation:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: OCIRepository Patch Annotation
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/ocirepository-patch-annotation
+      kubewarden/resources: OCIRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1beta2
+          resources:
+          - ocirepositories
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:16:40.741158922Z"
+    description: OCIRepository resources must have a patch annotation that matches
+      the provider.
+    digest: d67119fc340f8fceb01ec4b392b4d72aa6d64b756b2b86f3c06aa65b553c15ea
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: ocirepository-patch-annotation
+    sources:
+    - ghcr.io/kubewarden/policies/ocirepository-patch-annotation:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/ocirepository-patch-annotation-1.0.0/ocirepository-patch-annotation-1.0.0.tgz
     version: 1.0.0
   persistent-volume-access-modes:
   - annotations:
@@ -1994,6 +2181,126 @@ entries:
     - ghcr.io/kubewarden/policies/resource-quota-setting-is-missing:v1.0.0
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/resource-quota-setting-is-missing-1.0.0/resource-quota-setting-is-missing-1.0.0.tgz
+    version: 1.0.0
+  resource-reconcile-interval:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Resource Reconcile Interval Must Be Set Between Lower
+        and Upper Bound
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/resource-reconcile-interval
+      kubewarden/resources: HelmRelease, GitRepository, OCIRepository, Bucket, HelmChart,
+        HelmRepository, Kustomization
+      kubewarden/rules: |
+        - apiGroups:
+          - helm.toolkit.fluxcd.io
+          apiVersions:
+          - v2
+          resources:
+          - helmreleases
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - gitrepositories
+          - ocirepositories
+          - buckets
+          - helmcharts
+          - helmrepositories
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - kustomize.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - kustomizations
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:16:40.842232624Z"
+    description: The reconcile interval of a Resource must be set between a lower
+      and upper bound, lower_bound & upper_bound must be in seconds .
+    digest: e720554c57277258ec70fa0246fe70a5211e9fb0f7ddecf952d5663f84c8053b
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: resource-reconcile-interval
+    sources:
+    - ghcr.io/kubewarden/policies/resource-reconcile-interval:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/resource-reconcile-interval-1.0.0/resource-reconcile-interval-1.0.0.tgz
+    version: 1.0.0
+  resource-suspend-waiver:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Resource Suspend Waiver
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/resource-suspend-waiver
+      kubewarden/resources: HelmRelease, GitRepository, OCIRepository, Bucket, HelmChart,
+        HelmRepository, Kustomization
+      kubewarden/rules: |
+        - apiGroups:
+          - helm.toolkit.fluxcd.io
+          apiVersions:
+          - v2
+          resources:
+          - helmreleases
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - gitrepositories
+          - ocirepositories
+          - buckets
+          - helmcharts
+          - helmrepositories
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - kustomize.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - kustomizations
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:16:40.974672552Z"
+    description: Resource cannot be suspended unless it's on the waiver list.
+    digest: 22fbaa3c161c9b46c6e991b93ee64fcf4e9bfd1654b0bd0df0ccfb370ab4f939
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: resource-suspend-waiver
+    sources:
+    - ghcr.io/kubewarden/policies/resource-suspend-waiver:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/resource-suspend-waiver-1.0.0/resource-suspend-waiver-1.0.0.tgz
     version: 1.0.0
   safe-annotations:
   - annotations:
@@ -2607,4 +2914,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-03-19T07:16:23.730699048Z"
+generated: "2025-03-19T07:16:40.974691768Z"
