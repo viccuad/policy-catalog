@@ -986,6 +986,42 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/helm-chart-cosign-verification-1.0.0/helm-chart-cosign-verification-1.0.0.tgz
     version: 1.0.0
+  helm-release-max-history:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Helm Release Max History
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-release-max-history
+      kubewarden/resources: HelmRelease
+      kubewarden/rules: |
+        - apiGroups:
+          - helm.toolkit.fluxcd.io
+          apiVersions:
+          - v2
+          resources:
+          - helmreleases
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:20:29.76651441Z"
+    description: HelmRelease maxHistory cannot exceed the specified value.
+    digest: 49d4b207de652daeddc9f6ac4a2301aea0d833802683b0661585647a28922fad
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-release-max-history
+    sources:
+    - ghcr.io/kubewarden/policies/helm-release-max-history:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-max-history-1.0.0/helm-release-max-history-1.0.0.tgz
+    version: 1.0.0
   helm-release-rollback:
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
@@ -1022,6 +1058,42 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-rollback-1.0.0/helm-release-rollback-1.0.0.tgz
     version: 1.0.0
+  helm-release-service-account-name:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Helm Release Service Account Name
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-release-service-account-name
+      kubewarden/resources: HelmRelease
+      kubewarden/rules: |
+        - apiGroups:
+          - helm.toolkit.fluxcd.io
+          apiVersions:
+          - v2
+          resources:
+          - helmreleases
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:20:29.971811763Z"
+    description: HelmRelease serviceAccountName must contain a value from parameters.service_account_names
+    digest: b267e17e68fcd57a0005da70037624361801fcea6ed513d7004f816d1b05221a
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-release-service-account-name
+    sources:
+    - ghcr.io/kubewarden/policies/helm-release-service-account-name:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-service-account-name-1.0.0/helm-release-service-account-name-1.0.0.tgz
+    version: 1.0.0
   helm-release-storage-namespace:
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
@@ -1057,6 +1129,79 @@ entries:
     - ghcr.io/kubewarden/policies/helm-release-storage-namespace:v1.0.0
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-storage-namespace-1.0.0/helm-release-storage-namespace-1.0.0.tgz
+    version: 1.0.0
+  helm-release-target-namespace:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Helm Release Target Namespace
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-release-target-namespace
+      kubewarden/resources: HelmRelease
+      kubewarden/rules: |
+        - apiGroups:
+          - helm.toolkit.fluxcd.io
+          apiVersions:
+          - v2
+          resources:
+          - helmreleases
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:20:30.153451148Z"
+    description: HelmRelease targetNamespace must be one of the allowed targetNamespace
+      list.
+    digest: 4c5fd3adfc42e7478d18674863436e41ed3cef586b3237cd3851b223a828f6dd
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-release-target-namespace
+    sources:
+    - ghcr.io/kubewarden/policies/helm-release-target-namespace:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-target-namespace-1.0.0/helm-release-target-namespace-1.0.0.tgz
+    version: 1.0.0
+  helm-release-values-from-configmaps:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Helm Release Values From
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-release-values-from-configmaps
+      kubewarden/resources: HelmRelease
+      kubewarden/rules: |
+        - apiGroups:
+          - helm.toolkit.fluxcd.io
+          apiVersions:
+          - v2
+          resources:
+          - helmreleases
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:20:30.426450248Z"
+    description: HelmRelease valuesFrom must use correctly configured ConfigMaps.
+    digest: 84ef75336b54fe73d1bf9fad174dbc434ff53c4e3a9fb3f38bc3a90c43012b52
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-release-values-from-configmaps
+    sources:
+    - ghcr.io/kubewarden/policies/helm-release-values-from-configmaps:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-values-from-configmaps-1.0.0/helm-release-values-from-configmaps-1.0.0.tgz
     version: 1.0.0
   helm-repo-type:
   - annotations:
@@ -1387,6 +1532,78 @@ entries:
     - ghcr.io/kubewarden/policies/kustomization-decryption-provider:v1.0.0
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/kustomization-decryption-provider-1.0.0/kustomization-decryption-provider-1.0.0.tgz
+    version: 1.0.0
+  kustomization-excluded-paths:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Kustomization Excluded Paths
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/kustomization-excluded-paths
+      kubewarden/resources: Kustomization
+      kubewarden/rules: |
+        - apiGroups:
+          - kustomize.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - kustomizations
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:20:30.634550172Z"
+    description: spec.path cannot be one of excludedPathsList[]
+    digest: 774f402561c26d6f13528135a4b509574c9712dc8b8b4cc4631172a54f6b00e3
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: kustomization-excluded-paths
+    sources:
+    - ghcr.io/kubewarden/policies/kustomization-excluded-paths:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/kustomization-excluded-paths-1.0.0/kustomization-excluded-paths-1.0.0.tgz
+    version: 1.0.0
+  kustomization-image-tag-standards:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Kustomization Image Tag Standards
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/kustomization-image-tag-standards
+      kubewarden/resources: Kustomization
+      kubewarden/rules: |
+        - apiGroups:
+          - kustomize.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - kustomizations
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-03-19T07:20:30.841387189Z"
+    description: spec.Images must comply with image tag/semver reference standards.
+    digest: f6e2e6985fe91e8935e9deed3742d08345dbd4294fe8adf6273aa486cc4552e1
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: kustomization-image-tag-standards
+    sources:
+    - ghcr.io/kubewarden/policies/kustomization-image-tag-standards:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/kustomization-image-tag-standards-1.0.0/kustomization-image-tag-standards-1.0.0.tgz
     version: 1.0.0
   kustomization-images-requirement:
   - annotations:
@@ -3389,4 +3606,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-03-19T07:20:08.425452539Z"
+generated: "2025-03-19T07:20:30.841407908Z"
