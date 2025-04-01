@@ -42,6 +42,64 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:57:43.224601031Z"
+    description: 'This Policy allows setting a key and value for `nodeSelector` when
+      assigning pods to nodes.   `nodeSelector` is a field of PodSpec. It specifies
+      a map of key-value pairs. For the pod to be eligible to scheduled on a node,
+      the node must have each of the indicated key-value pairs as labels (it can have
+      additional labels as well).  '
+    digest: a7e1e0be61a11e2a97950f46ee91d6983d02b57c44786b0fa01573d6314bd871
+    home: https://github.com/kubewarden/rego-policies-library
+    name: affinity-node-selector
+    sources:
+    - ghcr.io/kubewarden/policies/affinity-node-selector:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/affinity-node-selector-1.0.1/affinity-node-selector-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Affinity Node Selector
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/affinity-node-selector
+      kubewarden/resources: CronJob, DaemonSet, Deployment, Job, Pod, StatefulSet
+      kubewarden/rules: |
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - cronjobs
+          - jobs
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - daemonsets
+          - deployments
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - pods
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -1361,6 +1419,64 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/containers-block-specific-image-names-1.0.0/containers-block-specific-image-names-1.0.0.tgz
     version: 1.0.0
   containers-block-ssh-port:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Containers Block Ssh Port
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/containers-block-ssh-port
+      kubewarden/resources: Deployment, Job, ReplicationController, ReplicaSet, DaemonSet,
+        StatefulSet, CronJob
+      kubewarden/rules: |
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - daemonsets
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:57:43.419762554Z"
+    description: 'This Policy checks if the container is exposing ssh port. '
+    digest: c8ee5c177776fb4ec4be4b07d1c799b57e9b0b5c561ac2ce9665596a6b114983
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - pci-dss
+    name: containers-block-ssh-port
+    sources:
+    - ghcr.io/kubewarden/policies/containers-block-ssh-port:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/containers-block-ssh-port-1.0.1/containers-block-ssh-port-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -8117,4 +8233,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-01T06:57:27.4308291Z"
+generated: "2025-04-01T06:57:43.419982204Z"
