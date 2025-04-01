@@ -2543,6 +2543,41 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:55:49.257057666Z"
+    description: HelmRelease serviceAccountName must contain a value from parameters.service_account_names
+    digest: 4f98c4cf4122116c9d692cbfc94711e81bb403918398d639a831f2771e2084bc
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-release-service-account-name
+    sources:
+    - ghcr.io/kubewarden/policies/helm-release-service-account-name:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-service-account-name-1.0.1/helm-release-service-account-name-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Helm Release Service Account Name
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-release-service-account-name
+      kubewarden/resources: HelmRelease
+      kubewarden/rules: |
+        - apiGroups:
+          - helm.toolkit.fluxcd.io
+          apiVersions:
+          - v2
+          resources:
+          - helmreleases
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -3444,6 +3479,42 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:55:49.353945434Z"
+    description: The 'spec.prune' field in the Kustomization object must be set according
+      to the input parameter 'prune'.
+    digest: bda8b42368c4d0e2f98f801cada406fd01a18ba8d7027f7a1affc3319a6a1a1c
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: kustomization-prune
+    sources:
+    - ghcr.io/kubewarden/policies/kustomization-prune:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/kustomization-prune-1.0.1/kustomization-prune-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Kustomization Prune
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/kustomization-prune
+      kubewarden/resources: Kustomization
+      kubewarden/rules: |
+        - apiGroups:
+          - kustomize.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - kustomizations
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -3534,6 +3605,42 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/kustomization-target-namespace-1.0.0/kustomization-target-namespace-1.0.0.tgz
     version: 1.0.0
   kustomization-var-substitution:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Kustomization Var Substitution
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/kustomization-var-substitution
+      kubewarden/resources: Kustomization
+      kubewarden/rules: |
+        - apiGroups:
+          - kustomize.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - kustomizations
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:55:49.505096791Z"
+    description: The property 'spec.postBuild.substitute.var_substitution_enabled'
+      must be disabled.
+    digest: 3cdb109863a4d4efdf6e9a554010acf20d34f42902e131ba4a83109c5816468a
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: kustomization-var-substitution
+    sources:
+    - ghcr.io/kubewarden/policies/kustomization-var-substitution:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/kustomization-var-substitution-1.0.1/kustomization-var-substitution-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -4776,6 +4883,42 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:55:49.625055439Z"
+    description: OCIRepository layer selector must only reference predefined media/operation
+      type.
+    digest: 7ba4d3380dc9918447057b8187ff7f847bd512908843323058ae6f15d453c0d3
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: ocirepository-layer-selector
+    sources:
+    - ghcr.io/kubewarden/policies/ocirepository-layer-selector:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/ocirepository-layer-selector-1.0.1/ocirepository-layer-selector-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: OCIRepository Layer Selector
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/ocirepository-layer-selector
+      kubewarden/resources: OCIRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1beta2
+          resources:
+          - ocirepositories
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -5048,6 +5191,39 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/persistent-volume-access-modes-1.0.0/persistent-volume-access-modes-1.0.0.tgz
     version: 1.0.0
   persistent-volume-claim-snapshot:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Persistent Volume Claim Snapshot
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/persistent-volume-claim-snapshot
+      kubewarden/resources: VolumeSnapshot
+      kubewarden/rules: |
+        - apiGroups:
+          - snapshot.storage.k8s.io
+          apiVersions:
+          - v1
+          resources:
+          - volumesnapshots
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:55:49.761258705Z"
+    description: 'This Policy checks for a PVC Snapshot.  '
+    digest: a9c7f28820c81f906c412ebc4a3e7b539bbefd25cc672fa7034ac16ab4b3c00a
+    home: https://github.com/kubewarden/rego-policies-library
+    name: persistent-volume-claim-snapshot
+    sources:
+    - ghcr.io/kubewarden/policies/persistent-volume-claim-snapshot:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/persistent-volume-claim-snapshot-1.0.1/persistent-volume-claim-snapshot-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -5857,6 +6033,66 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:55:49.86184926Z"
+    description: The reconcile interval of a Resource must be set between a lower
+      and upper bound, lower_bound & upper_bound must be in seconds .
+    digest: b3aa99ede942931b8be7a5ab04c1aa74dce70f0477e89d3a6f6f069a4b24c383
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: resource-reconcile-interval
+    sources:
+    - ghcr.io/kubewarden/policies/resource-reconcile-interval:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/resource-reconcile-interval-1.0.1/resource-reconcile-interval-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Resource Reconcile Interval Must Be Set Between Lower
+        and Upper Bound
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/resource-reconcile-interval
+      kubewarden/resources: HelmRelease, GitRepository, OCIRepository, Bucket, HelmChart,
+        HelmRepository, Kustomization
+      kubewarden/rules: |
+        - apiGroups:
+          - helm.toolkit.fluxcd.io
+          apiVersions:
+          - v2
+          resources:
+          - helmreleases
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - gitrepositories
+          - ocirepositories
+          - buckets
+          - helmcharts
+          - helmrepositories
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - kustomize.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - kustomizations
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -6544,4 +6780,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-01T06:55:28.944557758Z"
+generated: "2025-04-01T06:55:49.861987159Z"
