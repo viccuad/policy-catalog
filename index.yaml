@@ -420,6 +420,41 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:56:44.277512559Z"
+    description: Bucket endpoint domain must be one of the trusted domains.
+    digest: 95fc299c997cf4c861572940aa99b452106f1ad21c8d7c2584b4fb14147cbaf5
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: bucket-endpoint-domain
+    sources:
+    - ghcr.io/kubewarden/policies/bucket-endpoint-domain:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/bucket-endpoint-domain-1.0.1/bucket-endpoint-domain-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Bucket Endpoint Domain
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/bucket-endpoint-domain
+      kubewarden/resources: Bucket
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - buckets
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -2073,6 +2108,42 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:56:44.383273002Z"
+    description: GitRepository resources must include specific suffixes in the spec.ignore
+      field which determines the files to be ignored before making a commit.
+    digest: e0716ed954aa2fa16bde614566089c3ac2d5407b47208db10e31e6fb686430f1
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: gitrepository-ignore-suffixes
+    sources:
+    - ghcr.io/kubewarden/policies/gitrepository-ignore-suffixes:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/gitrepository-ignore-suffixes-1.0.1/gitrepository-ignore-suffixes-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: GitRepository Ignore Suffixes
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/gitrepository-ignore-suffixes
+      kubewarden/resources: GitRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - gitrepositories
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -2090,6 +2161,41 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/gitrepository-ignore-suffixes-1.0.0/gitrepository-ignore-suffixes-1.0.0.tgz
     version: 1.0.0
   gitrepository-organization-domains:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: GitRepository Organization Domains
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/gitrepository-organization-domains
+      kubewarden/resources: GitRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - gitrepositories
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:56:44.501182371Z"
+    description: GitRepository resources must only be from allowed organization domains.
+    digest: 1e5555657765ba0149c1d0cf3c11ed8ea48ff311512397c068f52e4a192ea681
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: gitrepository-organization-domains
+    sources:
+    - ghcr.io/kubewarden/policies/gitrepository-organization-domains:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/gitrepository-organization-domains-1.0.1/gitrepository-organization-domains-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -2341,6 +2447,41 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/helm-chart-cosign-verification-1.0.0/helm-chart-cosign-verification-1.0.0.tgz
     version: 1.0.0
   helm-chart-values-files-format:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: HelmChart Values File Format
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-chart-values-files-format
+      kubewarden/resources: HelmChart
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - helmcharts
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:56:44.607395183Z"
+    description: 'HelmChart must reference values files in the following format: ''xxx=values.yaml''.'
+    digest: 3ba5a5efb1d5c44ac44a990d3faecd38e382ccbf76dcf1e01df34770a3e5f16f
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-chart-values-files-format
+    sources:
+    - ghcr.io/kubewarden/policies/helm-chart-values-files-format:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-chart-values-files-format-1.0.1/helm-chart-values-files-format-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -4061,6 +4202,53 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:56:44.72002441Z"
+    description: 'Custom labels can help enforce organizational standards for each
+      artifact deployed. This Policy ensures a key and value are set in the entity''s
+      `metadata.labels` path. The Policy detects the presence of the following:   ###
+      label A label key of your choosing.   ### value A label value of your choosing. '
+    digest: de9b6c340db8bfcfb6372023fa669182a3d4e9efb23d3e2a547b34dc7b509e11
+    home: https://github.com/kubewarden/rego-policies-library
+    name: metadata-missing-label-and-value
+    sources:
+    - ghcr.io/kubewarden/policies/metadata-missing-label-and-value:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/metadata-missing-label-and-value-1.0.1/metadata-missing-label-and-value-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Metadata Missing Label And Value
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/metadata-missing-label-and-value
+      kubewarden/resources: DaemonSet, Deployment, Job, StatefulSet
+      kubewarden/rules: |
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - daemonsets
+          - deployments
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -4654,6 +4842,72 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:56:44.835971329Z"
+    description: 'Custom labels can help enforce organizational standards for each
+      artifact deployed. This Policy ensure a custom label key is set in the entity''s
+      `metadata`. The Policy detects the presence of the following:   ### owner A
+      label key of `owner` will help identify who the owner of this entity is.   ###
+      app.kubernetes.io/name The name of the application   ### app.kubernetes.io/instance
+      A unique name identifying the instance of an application     ### app.kubernetes.io/version
+      The current version of the application (e.g., a semantic version, revision hash,
+      etc.)  ### app.kubernetes.io/part-of The name of a higher level application
+      this one is part of   ### app.kubernetes.io/managed-by The tool being used to
+      manage the operation of an application   ### app.kubernetes.io/created-by The
+      controller/user who created this resource  '
+    digest: fedb08667b989addf4b7f5c637218f131a4cda7fe5f387fefa7ef776fc225f63
+    home: https://github.com/kubewarden/rego-policies-library
+    name: missing-kubernetes-app-part-of-label
+    sources:
+    - ghcr.io/kubewarden/policies/missing-kubernetes-app-part-of-label:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/missing-kubernetes-app-part-of-label-1.0.1/missing-kubernetes-app-part-of-label-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Missing Kubernetes App Part Of Label
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/missing-kubernetes-app-part-of-label
+      kubewarden/resources: Deployment, Job, ReplicationController, ReplicaSet, DaemonSet,
+        StatefulSet, CronJob
+      kubewarden/rules: |
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - daemonsets
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -4678,6 +4932,72 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/missing-kubernetes-app-part-of-label-1.0.0/missing-kubernetes-app-part-of-label-1.0.0.tgz
     version: 1.0.0
   missing-kubernetes-app-version-label:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Missing Kubernetes App Version Label
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/missing-kubernetes-app-version-label
+      kubewarden/resources: Deployment, Job, ReplicationController, ReplicaSet, DaemonSet,
+        StatefulSet, CronJob
+      kubewarden/rules: |
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - daemonsets
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:56:44.950272364Z"
+    description: 'Custom labels can help enforce organizational standards for each
+      artifact deployed. This Policy ensure a custom label key is set in the entity''s
+      `metadata`. The Policy detects the presence of the following:   ### owner A
+      label key of `owner` will help identify who the owner of this entity is.   ###
+      app.kubernetes.io/name The name of the application   ### app.kubernetes.io/instance
+      A unique name identifying the instance of an application     ### app.kubernetes.io/version
+      The current version of the application (e.g., a semantic version, revision hash,
+      etc.)  ### app.kubernetes.io/part-of The name of a higher level application
+      this one is part of   ### app.kubernetes.io/managed-by The tool being used to
+      manage the operation of an application   ### app.kubernetes.io/created-by The
+      controller/user who created this resource  '
+    digest: 5e2d3bb511b381cc1a51d0728738eb290ce712a117cff1793e7d6a0866cb1538
+    home: https://github.com/kubewarden/rego-policies-library
+    name: missing-kubernetes-app-version-label
+    sources:
+    - ghcr.io/kubewarden/policies/missing-kubernetes-app-version-label:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/missing-kubernetes-app-version-label-1.0.1/missing-kubernetes-app-version-label-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -7330,4 +7650,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-01T06:56:27.103513709Z"
+generated: "2025-04-01T06:56:44.950517712Z"
