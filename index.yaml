@@ -2434,6 +2434,42 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:55:28.078682029Z"
+    description: HelmRelease remediation retries must be within the specified lower
+      and upper bounds.
+    digest: 0eea79a9172808d36abc5d8c6e436af4f83f12997ee14c5d638c3471fe641639
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-release-remediation-retries
+    sources:
+    - ghcr.io/kubewarden/policies/helm-release-remediation-retries:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-remediation-retries-1.0.1/helm-release-remediation-retries-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Helm Release Remediation Retries
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-release-remediation-retries
+      kubewarden/resources: HelmRelease
+      kubewarden/rules: |
+        - apiGroups:
+          - helm.toolkit.fluxcd.io
+          apiVersions:
+          - v2
+          resources:
+          - helmreleases
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -2946,6 +2982,40 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:55:28.215702303Z"
+    description: '### Istio Gateway Approved Hosts This ensures you are only serving
+      traffic for approved hostnames.  '
+    digest: a15c44d5fc793079b1c11632e2605dc22a9c434933e674b3c635f80c0ec81a7a
+    home: https://github.com/kubewarden/rego-policies-library
+    name: istio-gateway-approved-hosts
+    sources:
+    - ghcr.io/kubewarden/policies/istio-gateway-approved-hosts:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/istio-gateway-approved-hosts-1.0.1/istio-gateway-approved-hosts-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Istio Gateway Approved Hosts
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/istio-gateway-approved-hosts
+      kubewarden/resources: Gateway
+      kubewarden/rules: |
+        - apiGroups:
+          - networking.istio.io
+          apiVersions:
+          - v1
+          resources:
+          - gateways
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -3210,6 +3280,42 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/kustomization-image-tag-standards-1.0.0/kustomization-image-tag-standards-1.0.0.tgz
     version: 1.0.0
   kustomization-images-requirement:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Kustomization Images Requirement
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/kustomization-images-requirement
+      kubewarden/resources: Kustomization
+      kubewarden/rules: |
+        - apiGroups:
+          - kustomize.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - kustomizations
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:55:28.376010083Z"
+    description: The 'spec.images' field in a Kustomization object must be enabled
+      or disabled based on the policy input images_required.
+    digest: bf9ade3567f874d39615e5d5753f86c29ac70b36b5d58a3bb94b07136ebc48f7
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: kustomization-images-requirement
+    sources:
+    - ghcr.io/kubewarden/policies/kustomization-images-requirement:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/kustomization-images-requirement-1.0.1/kustomization-images-requirement-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -4707,6 +4813,41 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:55:28.579278903Z"
+    description: OCIRepository resources must not use 'latest' as a tag reference.
+    digest: 766bd20f023415ad787c4152634cb128efb28c325ba660676a7abb5d18480a75
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: ocirepository-not-latest
+    sources:
+    - ghcr.io/kubewarden/policies/ocirepository-not-latest:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/ocirepository-not-latest-1.0.1/ocirepository-not-latest-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: OCIRepository Not Latest Tag
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/ocirepository-not-latest
+      kubewarden/resources: OCIRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1beta2
+          resources:
+          - ocirepositories
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -4794,6 +4935,42 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/ocirepository-organization-domains-1.0.0/ocirepository-organization-domains-1.0.0.tgz
     version: 1.0.0
   ocirepository-patch-annotation:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: OCIRepository Patch Annotation
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/ocirepository-patch-annotation
+      kubewarden/resources: OCIRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1beta2
+          resources:
+          - ocirepositories
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:55:28.695279614Z"
+    description: OCIRepository resources must have a patch annotation that matches
+      the provider.
+    digest: e1238073e8221b5dd27519db1d06b452cb518e6fe8e4b826b0765fc397d69d83
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: ocirepository-patch-annotation
+    sources:
+    - ghcr.io/kubewarden/policies/ocirepository-patch-annotation:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/ocirepository-patch-annotation-1.0.1/ocirepository-patch-annotation-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -5256,6 +5433,41 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:55:28.821949765Z"
+    description: 'This Policy will violate if any RBAC ClusterRoles or Roles are designated
+      with ''watch'' verb on ''secrets'' resource. '
+    digest: 771762352f74eb1305b1280811dabdf44b4e423e6d696cc3839112e06d279223
+    home: https://github.com/kubewarden/rego-policies-library
+    name: rbac-prohibit-watch-secrets
+    sources:
+    - ghcr.io/kubewarden/policies/rbac-prohibit-watch-secrets:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/rbac-prohibit-watch-secrets-1.0.1/rbac-prohibit-watch-secrets-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Rbac Prohibit Watch On Secrets
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/rbac-prohibit-watch-secrets
+      kubewarden/resources: Role, ClusterRole
+      kubewarden/rules: |
+        - apiGroups:
+          - rbac.authorization.k8s.io
+          apiVersions:
+          - v1
+          resources:
+          - roles
+          - clusterroles
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -5307,6 +5519,51 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/rbac-prohibit-wildcard-secrets-1.0.0/rbac-prohibit-wildcard-secrets-1.0.0.tgz
     version: 1.0.0
   rbac-prohibit-wildcards-policyrule-resources:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Rbac Prohibit Wildcards on Policy Rule Resources
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/rbac-prohibit-wildcards-policyrule-resources
+      kubewarden/resources: Role, ClusterRole
+      kubewarden/rules: |
+        - apiGroups:
+          - rbac.authorization.k8s.io
+          apiVersions:
+          - v1
+          resources:
+          - roles
+          - clusterroles
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:55:28.944448464Z"
+    description: 'This Policy prohibits various resources from being set with wildcards
+      for Role or ClusterRole resources, except for the `cluster-admin` ClusterRole.
+      It will check each resource specified for the verb specified. The wildcards
+      will be checked in:  ### Resources In the Kubernetes API, most resources are
+      represented and accessed using a string representation of their object name,
+      such as pods for a Pod. RBAC refers to resources using exactly the same name
+      that appears in the URL for the relevant API endpoint.   ### Verbs API verbs
+      like get, list, create, update, patch, watch, delete, and deletecollection are
+      used for resource requests.   ### API Groups The API Group being accessed (for
+      resource requests only).  ### Non Resource URLs Requests to endpoints other
+      than /api/v1/... or /apis/<group>/<version>/... are considered "non-resource
+      requests", and use the lower-cased HTTP method of the request as the verb. '
+    digest: c3163229d2835c23c6dcaf6267156f289725cfca21ff3f0ca9df99b6a6eba9ab
+    home: https://github.com/kubewarden/rego-policies-library
+    name: rbac-prohibit-wildcards-policyrule-resources
+    sources:
+    - ghcr.io/kubewarden/policies/rbac-prohibit-wildcards-policyrule-resources:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/rbac-prohibit-wildcards-policyrule-resources-1.0.1/rbac-prohibit-wildcards-policyrule-resources-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -6287,4 +6544,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-01T06:55:09.858968631Z"
+generated: "2025-04-01T06:55:28.944557758Z"
