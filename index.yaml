@@ -2398,6 +2398,41 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:56:07.478053999Z"
+    description: HelmRelease must not have post-renderers enabled.
+    digest: 82679b11f20db61318ddcfc97cda925c28118359c618d59e52e6c7b899cbf2eb
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-release-post-renderer
+    sources:
+    - ghcr.io/kubewarden/policies/helm-release-post-renderer:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-post-renderer-1.0.1/helm-release-post-renderer-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Helm Release Post Renderer
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-release-post-renderer
+      kubewarden/resources: HelmRelease
+      kubewarden/rules: |
+        - apiGroups:
+          - helm.toolkit.fluxcd.io
+          apiVersions:
+          - v2
+          resources:
+          - helmreleases
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -2487,6 +2522,41 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-remediation-retries-1.0.0/helm-release-remediation-retries-1.0.0.tgz
     version: 1.0.0
   helm-release-rollback:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Helm Release Rollback Should Be Disabled
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-release-rollback
+      kubewarden/resources: HelmRelease
+      kubewarden/rules: |
+        - apiGroups:
+          - helm.toolkit.fluxcd.io
+          apiVersions:
+          - v2
+          resources:
+          - helmreleases
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:56:07.592049488Z"
+    description: The rollback feature of a HelmRelease should be disabled.
+    digest: 318c364d3f55f43a75adb9d8c451b9697d12788976ed6db51c1d708fce7ff305
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-release-rollback
+    sources:
+    - ghcr.io/kubewarden/policies/helm-release-rollback:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-rollback-1.0.1/helm-release-rollback-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -2630,6 +2700,42 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-storage-namespace-1.0.0/helm-release-storage-namespace-1.0.0.tgz
     version: 1.0.0
   helm-release-target-namespace:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Helm Release Target Namespace
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-release-target-namespace
+      kubewarden/resources: HelmRelease
+      kubewarden/rules: |
+        - apiGroups:
+          - helm.toolkit.fluxcd.io
+          apiVersions:
+          - v2
+          resources:
+          - helmreleases
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:56:07.708455328Z"
+    description: HelmRelease targetNamespace must be one of the allowed targetNamespace
+      list.
+    digest: 8c914b6d6811c15e850e602c5b0bc7e645bc1234d5cb1b86b60b31a3b055624b
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-release-target-namespace
+    sources:
+    - ghcr.io/kubewarden/policies/helm-release-target-namespace:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-target-namespace-1.0.1/helm-release-target-namespace-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -3066,6 +3172,41 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/istio-gateway-approved-hosts-1.0.0/istio-gateway-approved-hosts-1.0.0.tgz
     version: 1.0.0
   istio-injected-namespaces:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Istio Injected Namespaces
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/istio-injected-namespaces
+      kubewarden/resources: Namespace
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - namespaces
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:56:07.809625977Z"
+    description: '# Istio-Injected Namespaces Specify namespaces you would like to
+      be labeld with `istio-injected: enabled`. Namespaces with this label with automatically
+      deploy a Istio sidecar with each pod.  '
+    digest: 46979fe2fb018fc3719a88f42aa0ace5c1abe7272135757c9e4df19b5423b7b3
+    home: https://github.com/kubewarden/rego-policies-library
+    name: istio-injected-namespaces
+    sources:
+    - ghcr.io/kubewarden/policies/istio-injected-namespaces:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/istio-injected-namespaces-1.0.1/istio-injected-namespaces-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -4436,6 +4577,72 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:56:07.926325233Z"
+    description: 'Custom labels can help enforce organizational standards for each
+      artifact deployed. This Policy ensure a custom label key is set in the entity''s
+      `metadata`. The Policy detects the presence of the following:   ### owner A
+      label key of `owner` will help identify who the owner of this entity is.   ###
+      app.kubernetes.io/name The name of the application   ### app.kubernetes.io/instance
+      A unique name identifying the instance of an application     ### app.kubernetes.io/version
+      The current version of the application (e.g., a semantic version, revision hash,
+      etc.)  ### app.kubernetes.io/part-of The name of a higher level application
+      this one is part of   ### app.kubernetes.io/managed-by The tool being used to
+      manage the operation of an application   ### app.kubernetes.io/created-by The
+      controller/user who created this resource  '
+    digest: ae61e78ca0df3311362a572a99f68a41105646f7a806bd7db4370000abac8dcf
+    home: https://github.com/kubewarden/rego-policies-library
+    name: missing-owner-label
+    sources:
+    - ghcr.io/kubewarden/policies/missing-owner-label:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/missing-owner-label-1.0.1/missing-owner-label-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Missing Owner Label
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/missing-owner-label
+      kubewarden/resources: Deployment, Job, ReplicationController, ReplicaSet, DaemonSet,
+        StatefulSet, CronJob
+      kubewarden/rules: |
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - daemonsets
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -4807,6 +5014,42 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:56:08.102027358Z"
+    description: OCIRepository resources must provide Cosign verification and reference
+      a specific key.
+    digest: d38e4d3160a663cc9f2689143d5921aeda66d3f6581a21d21647a2544b5faa1a
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: ocirepository-cosign-verification
+    sources:
+    - ghcr.io/kubewarden/policies/ocirepository-cosign-verification:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/ocirepository-cosign-verification-1.0.1/ocirepository-cosign-verification-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: OCIRepository Cosign Verification
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/ocirepository-cosign-verification
+      kubewarden/resources: OCIRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1beta2
+          resources:
+          - ocirepositories
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -4824,6 +5067,44 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/ocirepository-cosign-verification-1.0.0/ocirepository-cosign-verification-1.0.0.tgz
     version: 1.0.0
   ocirepository-ignore-suffixes:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: OCIRepository Ignore Suffixes
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/ocirepository-ignore-suffixes
+      kubewarden/resources: OCIRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1beta2
+          resources:
+          - ocirepositories
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:56:08.238806778Z"
+    description: OCIRepository resources must include specific suffixes in the spec.ignore
+      field which determines the files to be ignored before making a commit..
+    digest: d02904ab94091d1baf7878806b0c30e1e5a9fa603f24de4fe7f962b3c1742af4
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    - oci
+    - suffixes
+    name: ocirepository-ignore-suffixes
+    sources:
+    - ghcr.io/kubewarden/policies/ocirepository-ignore-suffixes:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/ocirepository-ignore-suffixes-1.0.1/ocirepository-ignore-suffixes-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -6780,4 +7061,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-01T06:55:49.861987159Z"
+generated: "2025-04-01T06:56:08.238922154Z"
