@@ -959,6 +959,72 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:56:58.778677561Z"
+    description: 'Running as root gives the container full access to all resources
+      in the VM it is running on. Containers should not run with such access rights
+      unless required by design. This Policy enforces that the `securityContext.runAsNonRoot`
+      attribute is set to `true`.  '
+    digest: 35d0b121b99a11b6f7c84b8fb2db70fd6c10682a8e7234b20bc619fa093976ff
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - pci-dss
+    - cis-benchmark
+    - mitre-attack
+    - nist800-190
+    - gdpr
+    - default
+    name: container-running-as-root
+    sources:
+    - ghcr.io/kubewarden/policies/container-running-as-root:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/container-running-as-root-1.0.1/container-running-as-root-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Container Running As Root
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/container-running-as-root
+      kubewarden/resources: Deployment, Job, ReplicationController, ReplicaSet, DaemonSet,
+        StatefulSet, CronJob
+      kubewarden/rules: |
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - daemonsets
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -1222,6 +1288,71 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/containers-block-ssh-port-1.0.0/containers-block-ssh-port-1.0.0.tgz
     version: 1.0.0
   containers-missing-security-context:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Containers Missing Security Context
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/containers-missing-security-context
+      kubewarden/resources: Deployment, Job, ReplicationController, ReplicaSet, DaemonSet,
+        StatefulSet, CronJob
+      kubewarden/rules: |
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - daemonsets
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:56:58.910169061Z"
+    description: 'This Policy checks if the container is missing securityContext while
+      there is no securityContext defined on the Pod level as well. The security settings
+      that are specified on the Pod level apply to all containers in the Pod. '
+    digest: a8c086be918daf49a96fd751e6917fd1078776c6bcd5bec25eb6ed859cdd203b
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - pci-dss
+    - cis-benchmark
+    - mitre-attack
+    - nist800-190
+    - gdpr
+    - default
+    name: containers-missing-security-context
+    sources:
+    - ghcr.io/kubewarden/policies/containers-missing-security-context:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/containers-missing-security-context-1.0.1/containers-missing-security-context-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -4642,6 +4773,72 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:56:59.024499328Z"
+    description: 'Custom labels can help enforce organizational standards for each
+      artifact deployed. This Policy ensure a custom label key is set in the entity''s
+      `metadata`. The Policy detects the presence of the following:   ### owner A
+      label key of `owner` will help identify who the owner of this entity is.   ###
+      app.kubernetes.io/name The name of the application   ### app.kubernetes.io/instance
+      A unique name identifying the instance of an application     ### app.kubernetes.io/version
+      The current version of the application (e.g., a semantic version, revision hash,
+      etc.)  ### app.kubernetes.io/part-of The name of a higher level application
+      this one is part of   ### app.kubernetes.io/managed-by The tool being used to
+      manage the operation of an application   ### app.kubernetes.io/created-by The
+      controller/user who created this resource '
+    digest: 904d34a955f82a0767a62bb1d1e7c39851cca61877de847062cae552c92e8aa3
+    home: https://github.com/kubewarden/rego-policies-library
+    name: missing-kubernetes-app-label
+    sources:
+    - ghcr.io/kubewarden/policies/missing-kubernetes-app-label:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/missing-kubernetes-app-label-1.0.1/missing-kubernetes-app-label-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Missing Kubernetes App Label
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/missing-kubernetes-app-label
+      kubewarden/resources: Deployment, Job, ReplicationController, ReplicaSet, DaemonSet,
+        StatefulSet, CronJob
+      kubewarden/rules: |
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - daemonsets
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -7650,4 +7847,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-01T06:56:44.950517712Z"
+generated: "2025-04-01T06:56:59.024718956Z"
