@@ -5667,6 +5667,42 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:57:11.175792569Z"
+    description: 'If you are using a CNI that allows for Network Policies, you can
+      use this Policy to allow Ingress traffic from one namespace to another.  By
+      default, if no policies exist in a namespace, then all ingress and egress traffic
+      is allowed to and from pods in that namespace.  '
+    digest: f42933b9f6cac35b99475e57d25d34c0f9927717d02c2f4355568c09f32a2e3d
+    home: https://github.com/kubewarden/rego-policies-library
+    name: network-allow-ingress-traffic-from-namespace-to-another
+    sources:
+    - ghcr.io/kubewarden/policies/network-allow-ingress-traffic-from-namespace-to-another:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/network-allow-ingress-traffic-from-namespace-to-another-1.0.1/network-allow-ingress-traffic-from-namespace-to-another-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Network Allow Ingress Traffic From Namespace To Another
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/network-allow-ingress-traffic-from-namespace-to-another
+      kubewarden/resources: NetworkPolicy
+      kubewarden/rules: |
+        - apiGroups:
+          - networking.k8s.io
+          apiVersions:
+          - v1
+          resources:
+          - networkpolicies
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -7847,4 +7883,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-01T06:56:59.024718956Z"
+generated: "2025-04-01T06:57:11.175970631Z"
