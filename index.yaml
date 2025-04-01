@@ -2311,6 +2311,41 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:54:29.29347071Z"
+    description: The type of a Helm repository should be OCI.
+    digest: 30befe968b5dbac889045b9d5b4e8461bd3c63a7112319d45bbe400802bf50e3
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-repo-type
+    sources:
+    - ghcr.io/kubewarden/policies/helm-repo-type:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-repo-type-1.0.1/helm-repo-type-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Helm Repo Type Should Be OCI
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-repo-type
+      kubewarden/resources: HelmRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - helmrepositories
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -2605,6 +2640,41 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:54:29.420340009Z"
+    description: Spec.decryption.provider must be set to one of decryption_providers.
+    digest: 4294b2295ead94c5192e0c8e21a6e7ea55a53ffb3dc5357c125fa87a50bd973f
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: kustomization-decryption-provider
+    sources:
+    - ghcr.io/kubewarden/policies/kustomization-decryption-provider:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/kustomization-decryption-provider-1.0.1/kustomization-decryption-provider-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Kustomization Decryption Provider
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/kustomization-decryption-provider
+      kubewarden/resources: Kustomization
+      kubewarden/rules: |
+        - apiGroups:
+          - kustomize.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - kustomizations
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -2657,6 +2727,41 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/kustomization-excluded-paths-1.0.0/kustomization-excluded-paths-1.0.0.tgz
     version: 1.0.0
   kustomization-image-tag-standards:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Kustomization Image Tag Standards
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/kustomization-image-tag-standards
+      kubewarden/resources: Kustomization
+      kubewarden/rules: |
+        - apiGroups:
+          - kustomize.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - kustomizations
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:54:29.568729009Z"
+    description: spec.Images must comply with image tag/semver reference standards.
+    digest: 8908094e6439457c70f6fe6b0e69ee2768eed0f91f0f127492f3695144249e25
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: kustomization-image-tag-standards
+    sources:
+    - ghcr.io/kubewarden/policies/kustomization-image-tag-standards:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/kustomization-image-tag-standards-1.0.1/kustomization-image-tag-standards-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -2750,6 +2855,41 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:54:29.704269569Z"
+    description: Kustomization patches should be enabled or disabled based on input.
+    digest: 5c82ae78615a5e9c37b4da5168b6c88102d87f95515a6ca95f18722438de49cf
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: kustomization-patches-requirement
+    sources:
+    - ghcr.io/kubewarden/policies/kustomization-patches-requirement:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/kustomization-patches-requirement-1.0.1/kustomization-patches-requirement-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Kustomization Patches
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/kustomization-patches-requirement
+      kubewarden/resources: Kustomization
+      kubewarden/rules: |
+        - apiGroups:
+          - kustomize.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - kustomizations
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -2803,6 +2943,42 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/kustomization-prune-1.0.0/kustomization-prune-1.0.0.tgz
     version: 1.0.0
   kustomization-target-namespace:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Kustomization Target Namespace
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/kustomization-target-namespace
+      kubewarden/resources: Kustomization
+      kubewarden/rules: |
+        - apiGroups:
+          - kustomize.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - kustomizations
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:54:29.814744677Z"
+    description: Kustomization targetNamespace must be one of the allowed targetNamespace
+      list.
+    digest: 6c5928116182749bdb70415d405ab4f09c6963e265e292c23bcee748159378f0
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: kustomization-target-namespace
+    sources:
+    - ghcr.io/kubewarden/policies/kustomization-target-namespace:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/kustomization-target-namespace-1.0.1/kustomization-target-namespace-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -3617,6 +3793,45 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:54:29.931125387Z"
+    description: 'When setting up default CPU and Memory values for your namespace,
+      this policy will check if both requests and limits are set. This policy checks
+      for the following:  | Resource Setting | Resource Type  | |---|---| |  default
+      | cpu  | |  default  | memory  | |  defaultRequest |  cpu | |  defaultRequest
+      | memory  | |  min | memory  | |  min | cpu  | |  max | cpu | |  max | memory  | '
+    digest: 8cd8593a2b65179f4386d901f9603482bc57c249f17a305fb5a24c0db17686dd
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - soc2-type1
+    name: namespace-resources-limitrange
+    sources:
+    - ghcr.io/kubewarden/policies/namespace-resources-limitrange:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/namespace-resources-limitrange-1.0.1/namespace-resources-limitrange-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Namespace Resources Limitrange
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/namespace-resources-limitrange
+      kubewarden/resources: LimitRange
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - limitranges
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -3898,6 +4113,41 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/ocirepository-not-latest-1.0.0/ocirepository-not-latest-1.0.0.tgz
     version: 1.0.0
   ocirepository-organization-domains:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: OCIRepository Organization Domains
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/ocirepository-organization-domains
+      kubewarden/resources: OCIRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1beta2
+          resources:
+          - ocirepositories
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:54:30.127799637Z"
+    description: OCIRepository resources must only be from allowed organization domains.
+    digest: b6e8f359d3b0fcb4bba71879dd0b97afcde5d15293a46b87f5683f495552a3e4
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: ocirepository-organization-domains
+    sources:
+    - ghcr.io/kubewarden/policies/ocirepository-organization-domains:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/ocirepository-organization-domains-1.0.1/ocirepository-organization-domains-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -5311,4 +5561,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-01T06:54:09.546719028Z"
+generated: "2025-04-01T06:54:30.127852235Z"
