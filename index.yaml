@@ -257,6 +257,63 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:54:49.483901826Z"
+    description: 'Using this Policy, you can prohibit workloads from being created
+      in a default namespace due to the lack of a namespace label.  '
+    digest: 2ab9259787e9f99286b47ba93d1f205026386b5e308b56918a491cf94be94fb8
+    home: https://github.com/kubewarden/rego-policies-library
+    name: block-workloads-created-without-specifying-namespace
+    sources:
+    - ghcr.io/kubewarden/policies/block-workloads-created-without-specifying-namespace:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/block-workloads-created-without-specifying-namespace-1.0.1/block-workloads-created-without-specifying-namespace-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Block Workloads Created Without Specifying Namespace
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/block-workloads-created-without-specifying-namespace
+      kubewarden/resources: Deployment, Job, ReplicationController, ReplicaSet, DaemonSet,
+        StatefulSet, CronJob
+      kubewarden/rules: |
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - daemonsets
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -1007,6 +1064,66 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/containers-missing-security-context-1.0.0/containers-missing-security-context-1.0.0.tgz
     version: 1.0.0
   containers-should-not-run-in-namespace:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Containers Should Not Run In Namespace
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/containers-should-not-run-in-namespace
+      kubewarden/resources: Pod, Deployment, Job, ReplicationController, ReplicaSet,
+        DaemonSet, StatefulSet, CronJob
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - pods
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - daemonsets
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:54:49.614442402Z"
+    description: 'This Policy ensure workloads are not running in a specified namespace.  '
+    digest: c25e78e0a6f3500437c6d90361e3e72a71cf974d98175072a098b01da4ad145d
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - cis-benchmark
+    - soc2-type1
+    name: containers-should-not-run-in-namespace
+    sources:
+    - ghcr.io/kubewarden/policies/containers-should-not-run-in-namespace:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/containers-should-not-run-in-namespace-1.0.1/containers-should-not-run-in-namespace-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -1840,6 +1957,41 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:54:49.751300979Z"
+    description: GitRepository resources must reference a specific branch, e.g. 'main'.
+    digest: 7519ea77b6ef27bc79c6198b2bc631d3aff057abc5e9e4aae9a51ef1b5f6ee30
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: gitrepository-specific-branch
+    sources:
+    - ghcr.io/kubewarden/policies/gitrepository-specific-branch:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/gitrepository-specific-branch-1.0.1/gitrepository-specific-branch-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: GitRepository Specific Branch
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/gitrepository-specific-branch
+      kubewarden/resources: GitRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - gitrepositories
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -1856,6 +2008,41 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/gitrepository-specific-branch-1.0.0/gitrepository-specific-branch-1.0.0.tgz
     version: 1.0.0
   gitrepository-untrusted-domains:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: GitRepository Untrusted Domains
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/gitrepository-untrusted-domains
+      kubewarden/resources: GitRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - gitrepositories
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:54:49.885490932Z"
+    description: GitRepository resources must not use targets from untrusted domains.
+    digest: 24184c4bde6c02e41ed0510fb56bd1abedf6c0c089c2b74b5588b4b300e96297
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: gitrepository-untrusted-domains
+    sources:
+    - ghcr.io/kubewarden/policies/gitrepository-untrusted-domains:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/gitrepository-untrusted-domains-1.0.1/gitrepository-untrusted-domains-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -2001,6 +2188,41 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-max-history-1.0.0/helm-release-max-history-1.0.0.tgz
     version: 1.0.0
   helm-release-namespace-match:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Helm Release Namespace Match
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-release-namespace-match
+      kubewarden/resources: HelmRelease
+      kubewarden/rules: |
+        - apiGroups:
+          - helm.toolkit.fluxcd.io
+          apiVersions:
+          - v2
+          resources:
+          - helmreleases
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:54:49.987918251Z"
+    description: HelmRelease storageNamespace and targetNamespace must match.
+    digest: bfe2d8bb8a9744d8077faaef39907e90fb0e2a23cca6b91b400f0f5855f985fb
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-release-namespace-match
+    sources:
+    - ghcr.io/kubewarden/policies/helm-release-namespace-match:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-namespace-match-1.0.1/helm-release-namespace-match-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -3412,6 +3634,72 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:54:50.097232832Z"
+    description: 'Custom labels can help enforce organizational standards for each
+      artifact deployed. This Policy ensure a custom label key is set in the entity''s
+      `metadata`. The Policy detects the presence of the following:   ### owner A
+      label key of `owner` will help identify who the owner of this entity is.   ###
+      app.kubernetes.io/name The name of the application   ### app.kubernetes.io/instance
+      A unique name identifying the instance of an application     ### app.kubernetes.io/version
+      The current version of the application (e.g., a semantic version, revision hash,
+      etc.)  ### app.kubernetes.io/part-of The name of a higher level application
+      this one is part of   ### app.kubernetes.io/managed-by The tool being used to
+      manage the operation of an application   ### app.kubernetes.io/created-by The
+      controller/user who created this resource  '
+    digest: ceaa542f049288738b1f1660dec2c4d81b925bee90ecf6c58d0ca88d64a9c68f
+    home: https://github.com/kubewarden/rego-policies-library
+    name: missing-kubernetes-app-managed-by-label
+    sources:
+    - ghcr.io/kubewarden/policies/missing-kubernetes-app-managed-by-label:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/missing-kubernetes-app-managed-by-label-1.0.1/missing-kubernetes-app-managed-by-label-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Missing Kubernetes App Managed By Label
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/missing-kubernetes-app-managed-by-label
+      kubewarden/resources: Deployment, Job, ReplicationController, ReplicaSet, DaemonSet,
+        StatefulSet, CronJob
+      kubewarden/rules: |
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - daemonsets
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -4729,6 +5017,51 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.1
+    apiVersion: v1
+    appVersion: 1.0.1
+    created: "2025-04-01T06:54:50.216745271Z"
+    description: 'This Policy prohibits various resources from being set with wildcards
+      for Role or ClusterRole resources, except for the `cluster-admin` ClusterRole.
+      It will check each resource specified for the verb specified. The wildcards
+      will be checked in:  ### Resources In the Kubernetes API, most resources are
+      represented and accessed using a string representation of their object name,
+      such as pods for a Pod. RBAC refers to resources using exactly the same name
+      that appears in the URL for the relevant API endpoint.   ### Verbs API verbs
+      like get, list, create, update, patch, watch, delete, and deletecollection are
+      used for resource requests.   ### API Groups The API Group being accessed (for
+      resource requests only).  ### Non Resource URLs Requests to endpoints other
+      than /api/v1/... or /apis/<group>/<version>/... are considered "non-resource
+      requests", and use the lower-cased HTTP method of the request as the verb. '
+    digest: 462caa07a0967f03b81614147be5c297e98762883704a39a39934f12e29f8785
+    home: https://github.com/kubewarden/rego-policies-library
+    name: rbac-prohibit-wildcards-policyrule-verbs
+    sources:
+    - ghcr.io/kubewarden/policies/rbac-prohibit-wildcards-policyrule-verbs:v1.0.1
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/rbac-prohibit-wildcards-policyrule-verbs-1.0.1/rbac-prohibit-wildcards-policyrule-verbs-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Rbac Prohibit Wildcards on Policy Rule Verbs
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/rbac-prohibit-wildcards-policyrule-verbs
+      kubewarden/resources: Role, ClusterRole
+      kubewarden/rules: |
+        - apiGroups:
+          - rbac.authorization.k8s.io
+          apiVersions:
+          - v1
+          resources:
+          - roles
+          - clusterroles
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.0
     apiVersion: v1
     appVersion: 1.0.0
@@ -5561,4 +5894,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-01T06:54:30.127852235Z"
+generated: "2025-04-01T06:54:50.216838925Z"
