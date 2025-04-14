@@ -3415,6 +3415,41 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.2
+    apiVersion: v1
+    appVersion: 1.0.2
+    created: "2025-04-14T10:41:30.840617082Z"
+    description: HelmRelease serviceAccountName must contain a value from parameters.service_account_names
+    digest: a93fe487a617da74ebd837c273372eaf93d630b60971b3640282dccad23542a9
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-release-service-account-name
+    sources:
+    - ghcr.io/kubewarden/policies/helm-release-service-account-name:v1.0.2
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-service-account-name-1.0.2/helm-release-service-account-name-1.0.2.tgz
+    version: 1.0.2
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Helm Release Service Account Name
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-release-service-account-name
+      kubewarden/resources: HelmRelease
+      kubewarden/rules: |
+        - apiGroups:
+          - helm.toolkit.fluxcd.io
+          apiVersions:
+          - v2
+          resources:
+          - helmreleases
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.1
     apiVersion: v1
     appVersion: 1.0.1
@@ -10007,4 +10042,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-14T10:40:23.885948947Z"
+generated: "2025-04-14T10:41:30.840896888Z"
