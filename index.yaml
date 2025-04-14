@@ -373,6 +373,63 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.2
+    apiVersion: v1
+    appVersion: 1.0.2
+    created: "2025-04-14T11:00:42.954247111Z"
+    description: 'Using this Policy, you can prohibit workloads from being created
+      in a default namespace due to the lack of a namespace label.  '
+    digest: 2c2e8a570bbf830079d4ffe50fd30a40c4195aa7d51cec1f136b1596b7fd5742
+    home: https://github.com/kubewarden/rego-policies-library
+    name: block-workloads-created-without-specifying-namespace
+    sources:
+    - ghcr.io/kubewarden/policies/block-workloads-created-without-specifying-namespace:v1.0.2
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/block-workloads-created-without-specifying-namespace-1.0.2/block-workloads-created-without-specifying-namespace-1.0.2.tgz
+    version: 1.0.2
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Block Workloads Created Without Specifying Namespace
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/block-workloads-created-without-specifying-namespace
+      kubewarden/resources: Deployment, Job, ReplicationController, ReplicaSet, DaemonSet,
+        StatefulSet, CronJob
+      kubewarden/rules: |
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - daemonsets
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.1
     apiVersion: v1
     appVersion: 1.0.1
@@ -10726,4 +10783,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-14T10:59:40.287211961Z"
+generated: "2025-04-14T11:00:42.954574702Z"
