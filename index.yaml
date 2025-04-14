@@ -2628,6 +2628,42 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.2
+    apiVersion: v1
+    appVersion: 1.0.2
+    created: "2025-04-14T10:53:16.601003143Z"
+    description: GitRepository resources must include specific suffixes in the spec.ignore
+      field which determines the files to be ignored before making a commit.
+    digest: 47902faaf93a67cd8e5ddfb1ad614e1936177b4f108e14fd55ec901fec2063d7
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: gitrepository-ignore-suffixes
+    sources:
+    - ghcr.io/kubewarden/policies/gitrepository-ignore-suffixes:v1.0.2
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/gitrepository-ignore-suffixes-1.0.2/gitrepository-ignore-suffixes-1.0.2.tgz
+    version: 1.0.2
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: GitRepository Ignore Suffixes
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/gitrepository-ignore-suffixes
+      kubewarden/resources: GitRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - gitrepositories
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.1
     apiVersion: v1
     appVersion: 1.0.1
@@ -10394,4 +10430,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-14T10:52:11.775355635Z"
+generated: "2025-04-14T10:53:16.601313455Z"
