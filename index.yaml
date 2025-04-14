@@ -6850,6 +6850,41 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.2
+    apiVersion: v1
+    appVersion: 1.0.2
+    created: "2025-04-14T08:04:26.342149952Z"
+    description: OCIRepository resources must not use 'latest' as a tag reference.
+    digest: ded397a0111f0ad5d1b9923e1d9dc99da4fcaeb6110bb6f0baa19b165b3f9cb1
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: ocirepository-not-latest
+    sources:
+    - ghcr.io/kubewarden/policies/ocirepository-not-latest:v1.0.2
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/ocirepository-not-latest-1.0.2/ocirepository-not-latest-1.0.2.tgz
+    version: 1.0.2
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: OCIRepository Not Latest Tag
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/ocirepository-not-latest
+      kubewarden/resources: OCIRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1beta2
+          resources:
+          - ocirepositories
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.1
     apiVersion: v1
     appVersion: 1.0.1
@@ -9436,4 +9471,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-14T08:03:03.930575575Z"
+generated: "2025-04-14T08:04:26.342691277Z"
