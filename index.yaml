@@ -8097,6 +8097,42 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.2
+    apiVersion: v1
+    appVersion: 1.0.2
+    created: "2025-04-14T07:54:25.91816888Z"
+    description: 'When creating resource quotas per namespace, ensure CPU and Memory
+      requests and limits are set. '
+    digest: 73a82450e16ebe4427359c4388ef916bf306bb6e408db3a5a5f6741c95524bb9
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - soc2-type1
+    name: resource-quota-setting-is-missing
+    sources:
+    - ghcr.io/kubewarden/policies/resource-quota-setting-is-missing:v1.0.2
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/resource-quota-setting-is-missing-1.0.2/resource-quota-setting-is-missing-1.0.2.tgz
+    version: 1.0.2
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Resource Quota Setting Is Missing
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/resource-quota-setting-is-missing
+      kubewarden/resources: ResourceQuota
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - resourcequotas
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.1
     apiVersion: v1
     appVersion: 1.0.1
@@ -9069,4 +9105,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-14T07:53:24.308291873Z"
+generated: "2025-04-14T07:54:25.918424303Z"
