@@ -5997,6 +5997,53 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.2
+    apiVersion: v1
+    appVersion: 1.0.2
+    created: "2025-04-14T11:01:49.315183754Z"
+    description: 'Custom labels can help enforce organizational standards for each
+      artifact deployed. This Policy ensures a key and value are set in the entity''s
+      `metadata.labels` path. The Policy detects the presence of the following:   ###
+      label A label key of your choosing.   ### value A label value of your choosing. '
+    digest: 891aacda57b61643cccfba0c43deccf98078312c711963f154822ff1523d1773
+    home: https://github.com/kubewarden/rego-policies-library
+    name: metadata-missing-label-and-value
+    sources:
+    - ghcr.io/kubewarden/policies/metadata-missing-label-and-value:v1.0.2
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/metadata-missing-label-and-value-1.0.2/metadata-missing-label-and-value-1.0.2.tgz
+    version: 1.0.2
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Metadata Missing Label And Value
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/metadata-missing-label-and-value
+      kubewarden/resources: DaemonSet, Deployment, Job, StatefulSet
+      kubewarden/rules: |
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - daemonsets
+          - deployments
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.1
     apiVersion: v1
     appVersion: 1.0.1
@@ -10783,4 +10830,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-14T11:00:42.954574702Z"
+generated: "2025-04-14T11:01:49.315624276Z"
