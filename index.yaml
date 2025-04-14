@@ -6992,6 +6992,42 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.2
+    apiVersion: v1
+    appVersion: 1.0.2
+    created: "2025-04-14T08:02:08.685089522Z"
+    description: OCIRepository resources must have a patch annotation that matches
+      the provider.
+    digest: 6a445352f0b1ade04d3fac6f0bd3aa000347976c82e302e622806772b0ad0519
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: ocirepository-patch-annotation
+    sources:
+    - ghcr.io/kubewarden/policies/ocirepository-patch-annotation:v1.0.2
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/ocirepository-patch-annotation-1.0.2/ocirepository-patch-annotation-1.0.2.tgz
+    version: 1.0.2
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: OCIRepository Patch Annotation
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/ocirepository-patch-annotation
+      kubewarden/resources: OCIRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1beta2
+          resources:
+          - ocirepositories
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.1
     apiVersion: v1
     appVersion: 1.0.1
@@ -9365,4 +9401,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-14T08:00:56.739539673Z"
+generated: "2025-04-14T08:02:08.685358104Z"
