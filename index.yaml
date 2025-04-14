@@ -6777,6 +6777,42 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.2
+    apiVersion: v1
+    appVersion: 1.0.2
+    created: "2025-04-14T08:05:20.869601525Z"
+    description: OCIRepository layer selector must only reference predefined media/operation
+      type.
+    digest: 35e65f5e9c4bbf7f184f0c21f0094f4bb3627a15a23d14afb68929bac1a5efc4
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: ocirepository-layer-selector
+    sources:
+    - ghcr.io/kubewarden/policies/ocirepository-layer-selector:v1.0.2
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/ocirepository-layer-selector-1.0.2/ocirepository-layer-selector-1.0.2.tgz
+    version: 1.0.2
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: OCIRepository Layer Selector
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/ocirepository-layer-selector
+      kubewarden/resources: OCIRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1beta2
+          resources:
+          - ocirepositories
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.1
     apiVersion: v1
     appVersion: 1.0.1
@@ -9471,4 +9507,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-14T08:04:26.342691277Z"
+generated: "2025-04-14T08:05:20.86981396Z"
