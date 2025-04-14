@@ -2914,6 +2914,42 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.2
+    apiVersion: v1
+    appVersion: 1.0.2
+    created: "2025-04-14T10:48:57.326319012Z"
+    description: HelmChart objects must provide cosign verification and reference
+      a secret containing the Cosign public keys of trusted authors
+    digest: 517762e776008ddb4582db82a6da8e1135ba02dd75aa078722712ccd7ca00840
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-chart-cosign-verification
+    sources:
+    - ghcr.io/kubewarden/policies/helm-chart-cosign-verification:v1.0.2
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-chart-cosign-verification-1.0.2/helm-chart-cosign-verification-1.0.2.tgz
+    version: 1.0.2
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: HelmChart Cosign Verification
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-chart-cosign-verification
+      kubewarden/resources: HelmChart
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - helmcharts
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.1
     apiVersion: v1
     appVersion: 1.0.1
@@ -10253,4 +10289,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-14T10:47:53.798819292Z"
+generated: "2025-04-14T10:48:57.326621809Z"
