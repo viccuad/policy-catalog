@@ -6700,6 +6700,44 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.2
+    apiVersion: v1
+    appVersion: 1.0.2
+    created: "2025-04-14T08:06:18.521323909Z"
+    description: OCIRepository resources must include specific suffixes in the spec.ignore
+      field which determines the files to be ignored before making a commit..
+    digest: 14a40eb267537c54495242d42c3c6205d301318cc10f9f529bb1e9a4c6274b02
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    - oci
+    - suffixes
+    name: ocirepository-ignore-suffixes
+    sources:
+    - ghcr.io/kubewarden/policies/ocirepository-ignore-suffixes:v1.0.2
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/ocirepository-ignore-suffixes-1.0.2/ocirepository-ignore-suffixes-1.0.2.tgz
+    version: 1.0.2
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: OCIRepository Ignore Suffixes
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/ocirepository-ignore-suffixes
+      kubewarden/resources: OCIRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1beta2
+          resources:
+          - ocirepositories
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.1
     apiVersion: v1
     appVersion: 1.0.1
@@ -9507,4 +9545,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-14T08:05:20.86981396Z"
+generated: "2025-04-14T08:06:18.52158251Z"
