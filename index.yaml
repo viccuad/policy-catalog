@@ -4345,6 +4345,41 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.2
+    apiVersion: v1
+    appVersion: 1.0.2
+    created: "2025-04-14T08:13:43.096116559Z"
+    description: spec.path cannot be one of excludedPathsList[]
+    digest: aeb0143b6d57451659ca90841cae247a1787ee26cd8bed19c8af9c06288bdff9
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: kustomization-excluded-paths
+    sources:
+    - ghcr.io/kubewarden/policies/kustomization-excluded-paths:v1.0.2
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/kustomization-excluded-paths-1.0.2/kustomization-excluded-paths-1.0.2.tgz
+    version: 1.0.2
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Kustomization Excluded Paths
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/kustomization-excluded-paths
+      kubewarden/resources: Kustomization
+      kubewarden/rules: |
+        - apiGroups:
+          - kustomize.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - kustomizations
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.1
     apiVersion: v1
     appVersion: 1.0.1
@@ -9760,4 +9795,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-14T08:12:40.561813233Z"
+generated: "2025-04-14T08:13:43.09639608Z"
