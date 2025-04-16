@@ -10290,6 +10290,44 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-04-16T10:28:34.24162353Z"
+    description: A Kubewarden policy that enforces root filesystem to be readonly
+    digest: 2a204ff02df8a1b6ec07182ea204019d66895d270f4414181ef0eb33baf8f3bd
+    home: https://github.com/kubewarden/readonly-root-filesystem-psp-policy
+    keywords:
+    - psp
+    - container
+    - filesystem
+    - volume
+    name: readonly-root-filesystem-psp
+    sources:
+    - ghcr.io/kubewarden/policies/readonly-root-filesystem-psp:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/readonly-root-filesystem-psp-1.0.0/readonly-root-filesystem-psp-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      artifacthub.io/repository: readonly-root-filesystem-psp
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Readonly Root Filesystem PSP
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/readonly-root-filesystem-psp
+      kubewarden/resources: Pod
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - pods
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v0.1.6
     apiVersion: v1
     appVersion: 0.1.6
@@ -11077,6 +11115,75 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-04-16T10:28:34.343810144Z"
+    description: Kubewarden policy that restricts what registries, tags and images
+      can pods on your cluster refer to
+    digest: 4ad86afb6f91bea0c540c0f532d587ee334f72e7ca87e3548f19e31826828d9b
+    home: https://github.com/kubewarden/trusted-repos-policy
+    keywords:
+    - image
+    - registry
+    - tag
+    name: trusted-repos
+    sources:
+    - ghcr.io/kubewarden/policies/trusted-repos:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/trusted-repos-1.0.0/trusted-repos-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      artifacthub.io/repository: trusted-repos
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Trusted Repos
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/trusted-repos
+      kubewarden/resources: Pod
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - pods
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - statefulsets
+          - daemonsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v0.2.0
     apiVersion: v1
     appVersion: 0.2.0
@@ -11137,6 +11244,74 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/unique-service-selector-policy-0.1.0/unique-service-selector-policy-0.1.0.tgz
     version: 0.1.0
   user-group-psp:
+  - annotations:
+      artifacthub.io/repository: user-group-psp
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: User Group PSP
+      kubewarden/mutation: "true"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/user-group-psp
+      kubewarden/resources: Pod
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - pods
+          operations:
+          - CREATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - statefulsets
+          - daemonsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-04-16T10:28:34.49553694Z"
+    description: Kubewarden Policy that controls containers user and groups
+    digest: d54dc70b5f4926b5d0af805d387076666a1a3b4eeb70bed6bde4864e82ae00c6
+    home: https://github.com/kubewarden/user-group-psp-policy
+    keywords:
+    - psp
+    - container
+    - user
+    - group
+    name: user-group-psp
+    sources:
+    - ghcr.io/kubewarden/policies/user-group-psp:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/user-group-psp-1.0.0/user-group-psp-1.0.0.tgz
+    version: 1.0.0
   - annotations:
       artifacthub.io/repository: user-group-psp
       catalog.cattle.io/hidden: "true"
@@ -11455,4 +11630,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-16T10:28:20.854150868Z"
+generated: "2025-04-16T10:28:34.495832843Z"
