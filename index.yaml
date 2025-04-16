@@ -9623,6 +9623,44 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-04-16T10:28:49.487359559Z"
+    description: Policy to ensure that namespaces have the required PSA labels configuration
+      for deployment in the cluster.
+    digest: 83974301bdaca3b19f36eae1fd28fc3b684f95d34869800a739a6b4fed76a435
+    home: https://github.com/kubewarden/psa-label-enforcer
+    keywords:
+    - namespace
+    - psa
+    - kubewarden
+    name: psa-label-enforcer
+    sources:
+    - ghcr.io/kubewarden/policies/psa-label-enforcer:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/psa-label-enforcer-1.0.0/psa-label-enforcer-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      artifacthub.io/repository: psa-label-enforcer
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: PSA Label Enforcer
+      kubewarden/mutation: "true"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/psa-label-enforcer
+      kubewarden/resources: Namespace
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - namespaces
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v0.1.3
     apiVersion: v1
     appVersion: 0.1.3
@@ -10940,6 +10978,45 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-04-16T10:28:49.648661041Z"
+    description: Replacement for the Kubernetes Pod Security Policy that controls
+      the usage of SELinux
+    digest: 272b026e0cc28d0f6d0d35df2ec7d5672789a585620e0816005b0c0e7b3ffb36
+    home: https://github.com/kubewarden/selinux-psp-policy
+    keywords:
+    - psp
+    - container
+    - runtime
+    - selinux
+    name: selinux-psp
+    sources:
+    - ghcr.io/kubewarden/policies/selinux-psp:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/selinux-psp-1.0.0/selinux-psp-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      artifacthub.io/repository: selinux-psp
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Selinux PSP
+      kubewarden/mutation: "true"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/selinux-psp
+      kubewarden/resources: Pod
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - pods
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v0.1.12
     apiVersion: v1
     appVersion: 0.1.12
@@ -10960,6 +11037,72 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/selinux-psp-0.1.12/selinux-psp-0.1.12.tgz
     version: 0.1.12
   share-pid-namespace-policy:
+  - annotations:
+      artifacthub.io/repository: share-pid-namespace
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Share PID namespace
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/share-pid-namespace-policy
+      kubewarden/resources: Pod,Replicationcontroller,Deployment,Replicaset,Statefulset,Daemonset,Job,Cronjob
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - pods
+          operations:
+          - CREATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - statefulsets
+          - daemonsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-04-16T10:28:49.834315868Z"
+    description: Policy validates pods sharing processes PID namespace
+    digest: 85f914b14bd38584889837756cdd8099fdfd56a3a8437b4e92c95c25d83540d5
+    home: https://github.com/kubewarden/share-pid-namespace-policy
+    keywords:
+    - pod
+    - pid
+    name: share-pid-namespace-policy
+    sources:
+    - ghcr.io/kubewarden/policies/share-pid-namespace-policy:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/share-pid-namespace-policy-1.0.0/share-pid-namespace-policy-1.0.0.tgz
+    version: 1.0.0
   - annotations:
       artifacthub.io/repository: share-pid-namespace
       catalog.cattle.io/hidden: "true"
@@ -11630,4 +11773,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-16T10:28:34.495832843Z"
+generated: "2025-04-16T10:28:49.834699344Z"
