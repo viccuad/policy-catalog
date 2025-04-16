@@ -1438,6 +1438,70 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:33:31.754609879Z"
+    description: 'Setting sysctls can allow containers unauthorized escalated privileges
+      to a Kubernetes node.  '
+    digest: c9c56d2caec2cc0cf0dd573f3ad1ec2aff433a60ce350b0cbca70b5be83c674b
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - pci-dss
+    - cis-benchmark
+    - mitre-attack
+    - nist800-190
+    - gdpr
+    - default
+    name: container-block-sysctl
+    sources:
+    - ghcr.io/kubewarden/policies/container-block-sysctl:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/container-block-sysctl-1.0.3/container-block-sysctl-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Container Block Sysctls
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/container-block-sysctl
+      kubewarden/resources: Deployment, Job, ReplicationController, ReplicaSet, DaemonSet,
+        StatefulSet, CronJob
+      kubewarden/rules: |
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - daemonsets
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.2
     apiVersion: v1
     appVersion: 1.0.2
@@ -1588,6 +1652,70 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/container-block-sysctl-1.0.0/container-block-sysctl-1.0.0.tgz
     version: 1.0.0
   container-block-sysctl.cve-2022-0811:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Container Block Sysctls CVE-2022-0811
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/container-block-sysctl.cve-2022-0811
+      kubewarden/resources: Deployment, Job, ReplicationController, ReplicaSet, DaemonSet,
+        StatefulSet, CronJob
+      kubewarden/rules: |
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - daemonsets
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:33:31.907923883Z"
+    description: 'Setting sysctls can allow containers unauthorized escalated privileges
+      to a Kubernetes node.  '
+    digest: dddeb43c40832757ae0602dce0b403cc0af19a7ec1885c19bbfa7a2e0290c047
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - pci-dss
+    - cis-benchmark
+    - mitre-attack
+    - nist800-190
+    - gdpr
+    - default
+    name: container-block-sysctl.cve-2022-0811
+    sources:
+    - ghcr.io/kubewarden/policies/container-block-sysctl.cve-2022-0811:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/container-block-sysctl.cve-2022-0811-1.0.3/container-block-sysctl.cve-2022-0811-1.0.3.tgz
+    version: 1.0.3
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -1961,6 +2089,72 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:33:32.054024241Z"
+    description: 'Running as root gives the container full access to all resources
+      in the VM it is running on. Containers should not run with such access rights
+      unless required by design. This Policy enforces that the `securityContext.runAsNonRoot`
+      attribute is set to `true`.  '
+    digest: 0b268c1c66b98d8dacd403c043fcbf85da0488f9df27f5931d183755a4236189
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - pci-dss
+    - cis-benchmark
+    - mitre-attack
+    - nist800-190
+    - gdpr
+    - default
+    name: container-running-as-root
+    sources:
+    - ghcr.io/kubewarden/policies/container-running-as-root:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/container-running-as-root-1.0.3/container-running-as-root-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Container Running As Root
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/container-running-as-root
+      kubewarden/resources: Deployment, Job, ReplicationController, ReplicaSet, DaemonSet,
+        StatefulSet, CronJob
+      kubewarden/rules: |
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - daemonsets
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.2
     apiVersion: v1
     appVersion: 1.0.2
@@ -2117,6 +2311,74 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/container-running-as-root-1.0.0/container-running-as-root-1.0.0.tgz
     version: 1.0.0
   container-running-as-user:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Container Running As User
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/container-running-as-user
+      kubewarden/resources: Deployment, Job, ReplicationController, ReplicaSet, DaemonSet,
+        StatefulSet, CronJob
+      kubewarden/rules: |
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - daemonsets
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:33:32.28039525Z"
+    description: 'Containers has a feature in which you specify the ID of the user
+      which all processes in the container will run with. This Policy enforces that
+      the `securityContext.runAsUser` attribute is set to a uid greater than root
+      uid. Running as root user gives the container full access to all resources in
+      the VM it is running on. Containers should not run with such access rights unless
+      required by design.  '
+    digest: c3d2eb0fa56d503833742fcd518d44aad791d77a3ea91df400248ea7cc51fccf
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - pci-dss
+    - cis-benchmark
+    - mitre-attack
+    - nist800-190
+    - gdpr
+    - default
+    name: container-running-as-user
+    sources:
+    - ghcr.io/kubewarden/policies/container-running-as-user:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/container-running-as-user-1.0.3/container-running-as-user-1.0.3.tgz
+    version: 1.0.3
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -16204,4 +16466,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-16T14:33:16.721973043Z"
+generated: "2025-04-16T14:33:32.280929331Z"
