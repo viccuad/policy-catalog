@@ -2925,6 +2925,80 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-04-16T10:29:33.641543191Z"
+    description: A Kubewarden Policy that controls the usage of environment variables
+    digest: 047aea2df7e54fd1d66d4626b775aec1232ed8de58be4753effde88b875df661
+    home: https://github.com/kubewarden/environment-variable-policy
+    keywords:
+    - deployment
+    - replicaset
+    - statefulset
+    - daemonset
+    - replicationcontroller
+    - job
+    - cronjob
+    - pod
+    - container
+    - environment-variables
+    name: environment-variable-policy
+    sources:
+    - ghcr.io/kubewarden/policies/environment-variable-policy:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/environment-variable-policy-1.0.0/environment-variable-policy-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      artifacthub.io/repository: environment-variable-policy
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Environment Variable Policy
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/environment-variable-policy
+      kubewarden/resources: Deployment,Replicaset,Statefulset,Daemonset,Replicationcontroller,Job,Cronjob,Pod
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - pods
+          operations:
+          - CREATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - statefulsets
+          - daemonsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v0.1.7
     apiVersion: v1
     appVersion: 0.1.7
@@ -9380,6 +9454,42 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-04-16T10:29:33.832697007Z"
+    description: Enforce a minimum value for the ndots option in the resolv.conf file
+      of a Pod.
+    digest: 2e52b98be5431a13b674a6d3e4555494f69dcd614041ab18c8f1ed73859e5549
+    home: https://github.com/kubewarden/pod-ndots
+    keywords:
+    - pod
+    name: pod-ndots
+    sources:
+    - ghcr.io/kubewarden/policies/pod-ndots:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/pod-ndots-1.0.0/pod-ndots-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      artifacthub.io/repository: pod-ndots-policy
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Pod ndots
+      kubewarden/mutation: "true"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/pod-ndots
+      kubewarden/resources: Pod
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - pods
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v0.1.1
     apiVersion: v1
     appVersion: 0.1.1
@@ -9602,6 +9712,43 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/pod-privileged-policy-0.3.3/pod-privileged-policy-0.3.3.tgz
     version: 0.3.3
   pod-runtime:
+  - annotations:
+      artifacthub.io/repository: pod-runtime
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Pod Runtime
+      kubewarden/mutation: "true"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/pod-runtime
+      kubewarden/resources: Pod
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - pods
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-04-16T10:29:34.016083097Z"
+    description: Policy that controls the usage of Pod runtimeClass
+    digest: 6a0a8da06848ffc65802fcf7d06ab7e425e8289eff2a845e5e6e4465fea6e579
+    home: https://github.com/kubewarden/pod-runtime-class-policy
+    keywords:
+    - pod
+    - runtime
+    - container runtime
+    name: pod-runtime
+    sources:
+    - ghcr.io/kubewarden/policies/pod-runtime:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/pod-runtime-1.0.0/pod-runtime-1.0.0.tgz
+    version: 1.0.0
   - annotations:
       artifacthub.io/repository: pod-runtime
       catalog.cattle.io/hidden: "true"
@@ -12098,4 +12245,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-16T10:29:19.082886366Z"
+generated: "2025-04-16T10:29:34.016473698Z"
