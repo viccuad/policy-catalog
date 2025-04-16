@@ -4610,6 +4610,41 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:31:37.236187023Z"
+    description: 'HelmChart must reference values files in the following format: ''xxx=values.yaml''.'
+    digest: fda1554cb2dbdb7e6d28114fd1ee8c8d26356310537810a24448b63c277fbb56
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-chart-values-files-format
+    sources:
+    - ghcr.io/kubewarden/policies/helm-chart-values-files-format:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-chart-values-files-format-1.0.3/helm-chart-values-files-format-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: HelmChart Values File Format
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-chart-values-files-format
+      kubewarden/resources: HelmChart
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - helmcharts
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.2
     apiVersion: v1
     appVersion: 1.0.2
@@ -4696,6 +4731,41 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/helm-chart-values-files-format-1.0.0/helm-chart-values-files-format-1.0.0.tgz
     version: 1.0.0
   helm-release-max-history:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Helm Release Max History
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-release-max-history
+      kubewarden/resources: HelmRelease
+      kubewarden/rules: |
+        - apiGroups:
+          - helm.toolkit.fluxcd.io
+          apiVersions:
+          - v2
+          resources:
+          - helmreleases
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:31:37.388057666Z"
+    description: HelmRelease maxHistory cannot exceed the specified value.
+    digest: b5591cd8b1dde53a358723202183f664242e2c3409f83c3617bbac6e272351e1
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-release-max-history
+    sources:
+    - ghcr.io/kubewarden/policies/helm-release-max-history:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-max-history-1.0.3/helm-release-max-history-1.0.3.tgz
+    version: 1.0.3
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -4822,6 +4892,41 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:31:37.492089964Z"
+    description: HelmRelease storageNamespace and targetNamespace must match.
+    digest: 0123c6f9b56ad60dc58e78c3ae670ca96ee284facc8f0b71781d45a525762d45
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-release-namespace-match
+    sources:
+    - ghcr.io/kubewarden/policies/helm-release-namespace-match:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-namespace-match-1.0.3/helm-release-namespace-match-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Helm Release Namespace Match
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-release-namespace-match
+      kubewarden/resources: HelmRelease
+      kubewarden/rules: |
+        - apiGroups:
+          - helm.toolkit.fluxcd.io
+          apiVersions:
+          - v2
+          resources:
+          - helmreleases
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.2
     apiVersion: v1
     appVersion: 1.0.2
@@ -4928,6 +5033,41 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:31:37.618093107Z"
+    description: HelmRelease must not have post-renderers enabled.
+    digest: ade27eaf273a0acc5be5ddcc338a94d3430a27c17f537b3d01055a21342d1dd5
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-release-post-renderer
+    sources:
+    - ghcr.io/kubewarden/policies/helm-release-post-renderer:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-post-renderer-1.0.3/helm-release-post-renderer-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Helm Release Post Renderer
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-release-post-renderer
+      kubewarden/resources: HelmRelease
+      kubewarden/rules: |
+        - apiGroups:
+          - helm.toolkit.fluxcd.io
+          apiVersions:
+          - v2
+          resources:
+          - helmreleases
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.2
     apiVersion: v1
     appVersion: 1.0.2
@@ -5014,6 +5154,42 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-post-renderer-1.0.0/helm-release-post-renderer-1.0.0.tgz
     version: 1.0.0
   helm-release-remediation-retries:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Helm Release Remediation Retries
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-release-remediation-retries
+      kubewarden/resources: HelmRelease
+      kubewarden/rules: |
+        - apiGroups:
+          - helm.toolkit.fluxcd.io
+          apiVersions:
+          - v2
+          resources:
+          - helmreleases
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:31:37.74256507Z"
+    description: HelmRelease remediation retries must be within the specified lower
+      and upper bounds.
+    digest: 6bbc1ff3bad8815684151efef1a8411d0eccde4a32a4c198284203f00d5de55b
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-release-remediation-retries
+    sources:
+    - ghcr.io/kubewarden/policies/helm-release-remediation-retries:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-remediation-retries-1.0.3/helm-release-remediation-retries-1.0.3.tgz
+    version: 1.0.3
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -14934,4 +15110,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-16T14:31:22.149445416Z"
+generated: "2025-04-16T14:31:37.743159584Z"
