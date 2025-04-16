@@ -9119,6 +9119,40 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:28:18.37219324Z"
+    description: 'When using a pod quota ensure setting the proper value for the quantity
+      of pods you wish to have in your namespace.  '
+    digest: f6785343f1530536adce0c51a18fb7656fa50b9f9b596de30053d65858440f59
+    home: https://github.com/kubewarden/rego-policies-library
+    name: namespace-pod-quota
+    sources:
+    - ghcr.io/kubewarden/policies/namespace-pod-quota:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/namespace-pod-quota-1.0.3/namespace-pod-quota-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Namespace Pod Quota
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/namespace-pod-quota
+      kubewarden/resources: ResourceQuota
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - resourcequotas
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.2
     apiVersion: v1
     appVersion: 1.0.2
@@ -9485,6 +9519,42 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:28:18.545342364Z"
+    description: 'If you are using a CNI that allows for Network Policies, you can
+      use this Policy to allow Ingress traffic from one namespace to another.  By
+      default, if no policies exist in a namespace, then all ingress and egress traffic
+      is allowed to and from pods in that namespace.  '
+    digest: 091d81dcd6e1d4a4ac63d256cfe6e75a63c22f02e915a2b0fa08b605ffe80e3c
+    home: https://github.com/kubewarden/rego-policies-library
+    name: network-allow-ingress-traffic-from-namespace-to-another
+    sources:
+    - ghcr.io/kubewarden/policies/network-allow-ingress-traffic-from-namespace-to-another:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/network-allow-ingress-traffic-from-namespace-to-another-1.0.3/network-allow-ingress-traffic-from-namespace-to-another-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Network Allow Ingress Traffic From Namespace To Another
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/network-allow-ingress-traffic-from-namespace-to-another
+      kubewarden/resources: NetworkPolicy
+      kubewarden/rules: |
+        - apiGroups:
+          - networking.k8s.io
+          apiVersions:
+          - v1
+          resources:
+          - networkpolicies
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.2
     apiVersion: v1
     appVersion: 1.0.2
@@ -9574,6 +9644,43 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/network-allow-ingress-traffic-from-namespace-to-another-1.0.0/network-allow-ingress-traffic-from-namespace-to-another-1.0.0.tgz
     version: 1.0.0
   network-block-all-ingress-traffic-to-namespace-from-cidr-block:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Network Block All Ingress Traffic To Namespace From
+        CIDR Block
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/network-block-all-ingress-traffic-to-namespace-from-cidr-block
+      kubewarden/resources: NetworkPolicy
+      kubewarden/rules: |
+        - apiGroups:
+          - networking.k8s.io
+          apiVersions:
+          - v1
+          resources:
+          - networkpolicies
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:28:18.702545774Z"
+    description: 'If you are using a CNI that allows for Network Policies, you can
+      use this Policy to block all Egress traffic from a specified namespace to a
+      CIDR block of IP addresses.   By default, if no policies exist in a namespace,
+      then all ingress and egress traffic is allowed to and from pods in that namespace.  '
+    digest: 8bfc46b484b1000083f2383a313601e32156cfeb234f697c8b5f0e9aa6143b4c
+    home: https://github.com/kubewarden/rego-policies-library
+    name: network-block-all-ingress-traffic-to-namespace-from-cidr-block
+    sources:
+    - ghcr.io/kubewarden/policies/network-block-all-ingress-traffic-to-namespace-from-cidr-block:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/network-block-all-ingress-traffic-to-namespace-from-cidr-block-1.0.3/network-block-all-ingress-traffic-to-namespace-from-cidr-block-1.0.3.tgz
+    version: 1.0.3
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -10340,6 +10447,45 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/ocirepository-patch-annotation-1.0.0/ocirepository-patch-annotation-1.0.0.tgz
     version: 1.0.0
   persistent-volume-access-modes:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Persistent Volume Access Modes
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/persistent-volume-access-modes
+      kubewarden/resources: PersistentVolume
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - persistentvolumes
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:28:18.860425827Z"
+    description: 'A PersistentVolume can be mounted on a host in any way supported
+      by the resource provider. As shown in the table below, providers will have different
+      capabilities and each PV''s access modes are set to the specific modes supported
+      by that particular volume. For example, NFS can support multiple read/write
+      clients, but a specific NFS PV might be exported on the server as read-only.
+      Each PV gets its own set of access modes describing that specific PV''s capabilities.  The
+      access modes are:  * ReadWriteOnce * ReadOnlyMany * ReadWriteMany * ReadWriteOncePod '
+    digest: 7dee561d9c35977abbbbfa67c1e1ee4f088b0a9415bfb1530f46d061413c413e
+    home: https://github.com/kubewarden/rego-policies-library
+    name: persistent-volume-access-modes
+    sources:
+    - ghcr.io/kubewarden/policies/persistent-volume-access-modes:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/persistent-volume-access-modes-1.0.3/persistent-volume-access-modes-1.0.3.tgz
+    version: 1.0.3
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -12033,6 +12179,42 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/readonly-root-filesystem-psp-0.1.6/readonly-root-filesystem-psp-0.1.6.tgz
     version: 0.1.6
   resource-quota-setting-is-missing:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Resource Quota Setting Is Missing
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/resource-quota-setting-is-missing
+      kubewarden/resources: ResourceQuota
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - resourcequotas
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:28:19.045706693Z"
+    description: 'When creating resource quotas per namespace, ensure CPU and Memory
+      requests and limits are set. '
+    digest: b01cc1c77fb5d3edc60804aff5d679c3637ab9263e56fcec53ed309e00ae1644
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - soc2-type1
+    name: resource-quota-setting-is-missing
+    sources:
+    - ghcr.io/kubewarden/policies/resource-quota-setting-is-missing:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/resource-quota-setting-is-missing-1.0.3/resource-quota-setting-is-missing-1.0.3.tgz
+    version: 1.0.3
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -13779,4 +13961,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-16T14:27:57.976343118Z"
+generated: "2025-04-16T14:28:19.046270821Z"
