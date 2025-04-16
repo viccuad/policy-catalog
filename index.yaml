@@ -5570,6 +5570,41 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:31:04.003662195Z"
+    description: HelmRelease valuesFrom must use correctly configured ConfigMaps.
+    digest: 5dac4ca31a997255fda84b96fc7f5b39a1c11aa6b34ffead59171c25f67c1b86
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-release-values-from-configmaps
+    sources:
+    - ghcr.io/kubewarden/policies/helm-release-values-from-configmaps:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-release-values-from-configmaps-1.0.3/helm-release-values-from-configmaps-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Helm Release Values From
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-release-values-from-configmaps
+      kubewarden/resources: HelmRelease
+      kubewarden/rules: |
+        - apiGroups:
+          - helm.toolkit.fluxcd.io
+          apiVersions:
+          - v2
+          resources:
+          - helmreleases
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.2
     apiVersion: v1
     appVersion: 1.0.2
@@ -5676,6 +5711,41 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:31:04.235621544Z"
+    description: The type of a Helm repository should be OCI.
+    digest: a2afa0456d7db709d1ce4b5f535c4a67e11ef77a8f0ec6e201976762e220f3a8
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-repo-type
+    sources:
+    - ghcr.io/kubewarden/policies/helm-repo-type:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-repo-type-1.0.3/helm-repo-type-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Helm Repo Type Should Be OCI
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-repo-type
+      kubewarden/resources: HelmRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - helmrepositories
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.2
     apiVersion: v1
     appVersion: 1.0.2
@@ -5762,6 +5832,42 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/helm-repo-type-1.0.0/helm-repo-type-1.0.0.tgz
     version: 1.0.0
   helm-repo-url:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Helm Repo URL Should Be in Organisation Domain
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/helm-repo-url
+      kubewarden/resources: HelmRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - helmrepositories
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:31:04.44318518Z"
+    description: The URL of a Helm repository should only be from the specified organisation
+      domain.
+    digest: 3c32c022bbbd3f511a0a7a57de51020b8b87f61551b877b1c4745c1da7b7de06
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: helm-repo-url
+    sources:
+    - ghcr.io/kubewarden/policies/helm-repo-url:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/helm-repo-url-1.0.3/helm-repo-url-1.0.3.tgz
+    version: 1.0.3
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -14687,4 +14793,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-16T14:30:47.195728598Z"
+generated: "2025-04-16T14:31:04.443672799Z"
