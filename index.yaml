@@ -673,6 +673,41 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:32:10.164076096Z"
+    description: Bucket region must be one of the approved regions.
+    digest: 0973fd440b20792945054f32f93cd808c8e5fef7365d86b7b06f20a77dc8357c
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: bucket-approved-region
+    sources:
+    - ghcr.io/kubewarden/policies/bucket-approved-region:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/bucket-approved-region-1.0.3/bucket-approved-region-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Bucket Approved Region
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/bucket-approved-region
+      kubewarden/resources: Bucket
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - buckets
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.2
     apiVersion: v1
     appVersion: 1.0.2
@@ -865,6 +900,41 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/bucket-endpoint-domain-1.0.0/bucket-endpoint-domain-1.0.0.tgz
     version: 1.0.0
   bucket-insecure-connections:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Bucket Insecure Connections
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/bucket-insecure-connections
+      kubewarden/resources: Bucket
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - buckets
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:32:10.318083359Z"
+    description: Ensure that Bucket objects do not use insecure connections
+    digest: 1ff099fba7fd153f942d711ebe63900541af5d1b17b11f938eeaf8a3703da489
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: bucket-insecure-connections
+    sources:
+    - ghcr.io/kubewarden/policies/bucket-insecure-connections:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/bucket-insecure-connections-1.0.3/bucket-insecure-connections-1.0.3.tgz
+    version: 1.0.3
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -4074,6 +4144,42 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:32:10.448300971Z"
+    description: GitRepository resources must include specific suffixes in the spec.ignore
+      field which determines the files to be ignored before making a commit.
+    digest: 7a6ef45ad972767792e7357b28f24325e127f1168b73f201066e4de548c78b18
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: gitrepository-ignore-suffixes
+    sources:
+    - ghcr.io/kubewarden/policies/gitrepository-ignore-suffixes:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/gitrepository-ignore-suffixes-1.0.3/gitrepository-ignore-suffixes-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: GitRepository Ignore Suffixes
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/gitrepository-ignore-suffixes
+      kubewarden/resources: GitRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - gitrepositories
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.2
     apiVersion: v1
     appVersion: 1.0.2
@@ -4163,6 +4269,41 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/gitrepository-ignore-suffixes-1.0.0/gitrepository-ignore-suffixes-1.0.0.tgz
     version: 1.0.0
   gitrepository-organization-domains:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: GitRepository Organization Domains
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/gitrepository-organization-domains
+      kubewarden/resources: GitRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - gitrepositories
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:32:10.621867613Z"
+    description: GitRepository resources must only be from allowed organization domains.
+    digest: 6cf7de97670074576925c9543608b4680522e127bb6e25243c5cbf78bc9e158d
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: gitrepository-organization-domains
+    sources:
+    - ghcr.io/kubewarden/policies/gitrepository-organization-domains:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/gitrepository-organization-domains-1.0.3/gitrepository-organization-domains-1.0.3.tgz
+    version: 1.0.3
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -15216,4 +15357,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-16T14:31:54.855502535Z"
+generated: "2025-04-16T14:32:10.622326585Z"
