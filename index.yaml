@@ -226,6 +226,74 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-04-16T10:30:47.39970787Z"
+    description: Replacement for the Kubernetes Pod Security Policy that controls
+      the allowance of privilege escalation in containers and init containers of a
+      pod
+    digest: aca016e67d70a5aec2f1e2a031addeba5869df438a548928dcd8ce65ff9f8ea2
+    home: https://github.com/kubewarden/allow-privilege-escalation-psp-policy
+    keywords:
+    - PSP
+    - privilege escalation
+    name: allow-privilege-escalation-psp
+    sources:
+    - ghcr.io/kubewarden/policies/allow-privilege-escalation-psp:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/allow-privilege-escalation-psp-1.0.0/allow-privilege-escalation-psp-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      artifacthub.io/repository: allow-privilege-escalation-psp
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Allow Privilege Escalation PSP
+      kubewarden/mutation: "true"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/allow-privilege-escalation-psp
+      kubewarden/resources: Deployment,Replicaset,Statefulset,Daemonset,Replicationcontroller,Job,Cronjob,Pod
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - pods
+          operations:
+          - CREATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - statefulsets
+          - daemonsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v0.2.7
     apiVersion: v1
     appVersion: 0.2.7
@@ -245,6 +313,44 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/allow-privilege-escalation-psp-0.2.7/allow-privilege-escalation-psp-0.2.7.tgz
     version: 0.2.7
   allowed-fsgroups-psp:
+  - annotations:
+      artifacthub.io/repository: allowed-fsgroups-psp-policy
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Allowed Fs Groups PSP
+      kubewarden/mutation: "true"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/allowed-fsgroups-psp
+      kubewarden/resources: Pod
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - pods
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-04-16T10:30:47.496027488Z"
+    description: Replacement for the Kubernetes Pod Security Policy that controls
+      the usage of fsGroups in the pod security context
+    digest: 6870dc9b510330ef0693201a865c34e1679b429fc12d7f79fa789ae4c8a0302b
+    home: https://github.com/kubewarden/allowed-fsgroups-psp-policy
+    keywords:
+    - psp
+    - container
+    - runtime
+    name: allowed-fsgroups-psp
+    sources:
+    - ghcr.io/kubewarden/policies/allowed-fsgroups-psp:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/allowed-fsgroups-psp-1.0.0/allowed-fsgroups-psp-1.0.0.tgz
+    version: 1.0.0
   - annotations:
       artifacthub.io/repository: allowed-fsgroups-psp-policy
       catalog.cattle.io/hidden: "true"
@@ -10621,6 +10727,43 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-04-16T10:30:47.627041364Z"
+    description: Replacement for the Kubernetes Pod Security Policy that controls
+      the usage of AppArmor profiles
+    digest: b620d6f710c6e9c789a4d4605d1421da73306cab6743b210530688c66534a433
+    home: https://github.com/kubewarden/apparmor-psp-policy
+    keywords:
+    - psp
+    - apparmor
+    name: psp-apparmor
+    sources:
+    - ghcr.io/kubewarden/policies/apparmor-psp:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/psp-apparmor-1.0.0/psp-apparmor-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      artifacthub.io/repository: apparmor-psp
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Apparmor PSP
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/apparmor-psp
+      kubewarden/resources: Pod
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - pods
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v0.1.13
     apiVersion: v1
     appVersion: 0.1.13
@@ -12677,6 +12820,76 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.0
+    apiVersion: v1
+    appVersion: 1.0.0
+    created: "2025-04-16T10:30:47.762370955Z"
+    description: A Kubewarden Policy that verifies all the signatures of the container
+      images referenced by a Pod
+    digest: f3245ba93efdb8799615595bceeb290c037730865dc5185bdea5911961665e41
+    home: https://github.com/kubewarden/verify-image-signatures
+    keywords:
+    - pod
+    - signature
+    - sigstore
+    - trusted
+    name: verify-image-signatures
+    sources:
+    - ghcr.io/kubewarden/policies/verify-image-signatures:v1.0.0
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/verify-image-signatures-1.0.0/verify-image-signatures-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      artifacthub.io/repository: verify-image-signatures
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Verify Image Signatures
+      kubewarden/mutation: "true"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/verify-image-signatures
+      kubewarden/resources: Pod
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - pods
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - statefulsets
+          - daemonsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v0.3.2
     apiVersion: v1
     appVersion: 0.3.2
@@ -12982,4 +13195,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-16T10:30:33.08344075Z"
+generated: "2025-04-16T10:30:47.762832706Z"
