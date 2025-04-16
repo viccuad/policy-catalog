@@ -10030,6 +10030,44 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:28:57.542284093Z"
+    description: OCIRepository resources must include specific suffixes in the spec.ignore
+      field which determines the files to be ignored before making a commit..
+    digest: c98e5b9c277342f06fb092c98fb96ee4f59d6609bfb614d095ca498301c59e53
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    - oci
+    - suffixes
+    name: ocirepository-ignore-suffixes
+    sources:
+    - ghcr.io/kubewarden/policies/ocirepository-ignore-suffixes:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/ocirepository-ignore-suffixes-1.0.3/ocirepository-ignore-suffixes-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: OCIRepository Ignore Suffixes
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/ocirepository-ignore-suffixes
+      kubewarden/resources: OCIRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1beta2
+          resources:
+          - ocirepositories
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.2
     apiVersion: v1
     appVersion: 1.0.2
@@ -10125,6 +10163,42 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/ocirepository-ignore-suffixes-1.0.0/ocirepository-ignore-suffixes-1.0.0.tgz
     version: 1.0.0
   ocirepository-layer-selector:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: OCIRepository Layer Selector
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/ocirepository-layer-selector
+      kubewarden/resources: OCIRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1beta2
+          resources:
+          - ocirepositories
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:28:57.702574876Z"
+    description: OCIRepository layer selector must only reference predefined media/operation
+      type.
+    digest: db46080054be0c35551121ea2a2137e7b7fa674b777538943399d8ec828e7b9d
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: ocirepository-layer-selector
+    sources:
+    - ghcr.io/kubewarden/policies/ocirepository-layer-selector:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/ocirepository-layer-selector-1.0.3/ocirepository-layer-selector-1.0.3.tgz
+    version: 1.0.3
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -10254,6 +10328,41 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:28:57.899956108Z"
+    description: OCIRepository resources must not use 'latest' as a tag reference.
+    digest: 8451861f9b4848b54e263f26417dc6cc51536085177717efd26cc197046e4b6b
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: ocirepository-not-latest
+    sources:
+    - ghcr.io/kubewarden/policies/ocirepository-not-latest:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/ocirepository-not-latest-1.0.3/ocirepository-not-latest-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: OCIRepository Not Latest Tag
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/ocirepository-not-latest
+      kubewarden/resources: OCIRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1beta2
+          resources:
+          - ocirepositories
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.2
     apiVersion: v1
     appVersion: 1.0.2
@@ -10360,6 +10469,41 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:28:58.03235298Z"
+    description: OCIRepository resources must only be from allowed organization domains.
+    digest: d47ddd50e50b86e68f7be62ebe84483bc6758c7ce25cae2c32dc280702b7db03
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: ocirepository-organization-domains
+    sources:
+    - ghcr.io/kubewarden/policies/ocirepository-organization-domains:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/ocirepository-organization-domains-1.0.3/ocirepository-organization-domains-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: OCIRepository Organization Domains
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/ocirepository-organization-domains
+      kubewarden/resources: OCIRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1beta2
+          resources:
+          - ocirepositories
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.2
     apiVersion: v1
     appVersion: 1.0.2
@@ -10446,6 +10590,42 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/ocirepository-organization-domains-1.0.0/ocirepository-organization-domains-1.0.0.tgz
     version: 1.0.0
   ocirepository-patch-annotation:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: OCIRepository Patch Annotation
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/ocirepository-patch-annotation
+      kubewarden/resources: OCIRepository
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1beta2
+          resources:
+          - ocirepositories
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:28:58.196263983Z"
+    description: OCIRepository resources must have a patch annotation that matches
+      the provider.
+    digest: ad802a90b8341795c73e3f21f186f7f2ca74cc20719a8465fef685146ee5cb46
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: ocirepository-patch-annotation
+    sources:
+    - ghcr.io/kubewarden/policies/ocirepository-patch-annotation:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/ocirepository-patch-annotation-1.0.3/ocirepository-patch-annotation-1.0.3.tgz
+    version: 1.0.3
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -14187,4 +14367,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-16T14:28:40.786643153Z"
+generated: "2025-04-16T14:28:58.196862177Z"
