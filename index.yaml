@@ -814,6 +814,41 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:32:23.632199391Z"
+    description: Bucket endpoint domain must be one of the trusted domains.
+    digest: 2a7c2a8eb0840f4bfb9beb22de5be610a778da3ec62de07e6864d10146b6eb67
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - flux
+    name: bucket-endpoint-domain
+    sources:
+    - ghcr.io/kubewarden/policies/bucket-endpoint-domain:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/bucket-endpoint-domain-1.0.3/bucket-endpoint-domain-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Bucket Endpoint Domain
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/bucket-endpoint-domain
+      kubewarden/resources: Bucket
+      kubewarden/rules: |
+        - apiGroups:
+          - source.toolkit.fluxcd.io
+          apiVersions:
+          - v1
+          resources:
+          - buckets
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.2
     apiVersion: v1
     appVersion: 1.0.2
@@ -2614,6 +2649,71 @@ entries:
           operations:
           - CREATE
           - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:32:23.756287822Z"
+    description: 'This Policy checks if the container is missing securityContext while
+      there is no securityContext defined on the Pod level as well. The security settings
+      that are specified on the Pod level apply to all containers in the Pod. '
+    digest: 64225c5db05153d4bc8ca3400c4c5e4db573de0cbf0fa23223f86270e353da04
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - pci-dss
+    - cis-benchmark
+    - mitre-attack
+    - nist800-190
+    - gdpr
+    - default
+    name: containers-missing-security-context
+    sources:
+    - ghcr.io/kubewarden/policies/containers-missing-security-context:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/containers-missing-security-context-1.0.3/containers-missing-security-context-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Containers Missing Security Context
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/containers-missing-security-context
+      kubewarden/resources: Deployment, Job, ReplicationController, ReplicaSet, DaemonSet,
+        StatefulSet, CronJob
+      kubewarden/rules: |
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - daemonsets
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
       kubewarden/tag: v1.0.2
     apiVersion: v1
     appVersion: 1.0.2
@@ -2767,6 +2867,66 @@ entries:
     - https://github.com/kubewarden/policy-catalog/releases/download/containers-missing-security-context-1.0.0/containers-missing-security-context-1.0.0.tgz
     version: 1.0.0
   containers-should-not-run-in-namespace:
+  - annotations:
+      artifacthub.io/repository: kubewarden-rego-policies-library
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/type: kubewarden-policy
+      catalog.cattle.io/ui-component: kubewarden
+      kubewarden/displayName: Containers Should Not Run In Namespace
+      kubewarden/mutation: "false"
+      kubewarden/registry: ghcr.io
+      kubewarden/repository: kubewarden/policies/containers-should-not-run-in-namespace
+      kubewarden/resources: Pod, Deployment, Job, ReplicationController, ReplicaSet,
+        DaemonSet, StatefulSet, CronJob
+      kubewarden/rules: |
+        - apiGroups:
+          - ''
+          apiVersions:
+          - v1
+          resources:
+          - pods
+          - replicationcontrollers
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - apps
+          apiVersions:
+          - v1
+          resources:
+          - deployments
+          - replicasets
+          - daemonsets
+          - statefulsets
+          operations:
+          - CREATE
+          - UPDATE
+        - apiGroups:
+          - batch
+          apiVersions:
+          - v1
+          resources:
+          - jobs
+          - cronjobs
+          operations:
+          - CREATE
+          - UPDATE
+      kubewarden/tag: v1.0.3
+    apiVersion: v1
+    appVersion: 1.0.3
+    created: "2025-04-16T14:32:23.895295222Z"
+    description: 'This Policy ensure workloads are not running in a specified namespace.  '
+    digest: ab1681f9b78df5d52d6e22f0c1d0ec7099a3dae9207ab9e67eb0a9388c3c5a7f
+    home: https://github.com/kubewarden/rego-policies-library
+    keywords:
+    - cis-benchmark
+    - soc2-type1
+    name: containers-should-not-run-in-namespace
+    sources:
+    - ghcr.io/kubewarden/policies/containers-should-not-run-in-namespace:v1.0.3
+    urls:
+    - https://github.com/kubewarden/policy-catalog/releases/download/containers-should-not-run-in-namespace-1.0.3/containers-should-not-run-in-namespace-1.0.3.tgz
+    version: 1.0.3
   - annotations:
       artifacthub.io/repository: kubewarden-rego-policies-library
       catalog.cattle.io/hidden: "true"
@@ -15357,4 +15517,4 @@ entries:
     urls:
     - https://github.com/kubewarden/policy-catalog/releases/download/volumes-psp-0.1.11/volumes-psp-0.1.11.tgz
     version: 0.1.11
-generated: "2025-04-16T14:32:10.622326585Z"
+generated: "2025-04-16T14:32:23.895826872Z"
