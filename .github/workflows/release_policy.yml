@@ -138,15 +138,23 @@ jobs:
             --output "../$TARGET_DIR/Chart.yaml"
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          title: "chore: update policy ${{ steps.repo-info.outputs.repo }} to ${{ steps.repo-info.outputs.tag }}"
-          body: |
-            Updates policy ${{ steps.repo-info.outputs.repo }} to ${{ steps.repo-info.outputs.tag }}
-          commit-message: "chore: update policy ${{ steps.repo-info.outputs.repo }} to ${{ steps.repo-info.outputs.tag }}"
-          add-paths: |
-            charts
-          branch: update-policy-${{ steps.repo-info.outputs.repo }}-${{ steps.repo-info.outputs.tag }}
-          base: main
-          delete-branch: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TITLE="chore: update policy ${{ steps.repo-info.outputs.repo }} to ${{ steps.repo-info.outputs.tag }}"
+          BODY="Updates policy ${{ steps.repo-info.outputs.repo }} to ${{ steps.repo-info.outputs.tag }}"
+          COMMIT_MSG="chore: update policy ${{ steps.repo-info.outputs.repo }} to ${{ steps.repo-info.outputs.tag }}"
+
+          TARGET_DIR="charts"
+          BRANCH_NAME="update-policy-${{ steps.repo-info.outputs.repo }}-${{ steps.repo-info.outputs.tag }}"
+
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git add "$TARGET_DIR"
+          git commit -m "$COMMIT_MSG"
+          git push origin "$BRANCH_NAME"
+          gh pr create \
+            --title "$TITLE" \
+            --body "$BODY" \
+            --base main \
+            --head "$BRANCH_NAME"
