@@ -9,7 +9,6 @@ import (
 	"net/url"
 	"os"
 	"path/filepath"
-	"strings"
 
 	"github.com/google/go-containerregistry/pkg/name"
 	"github.com/yaml/go-yaml"
@@ -50,6 +49,18 @@ type RepositoryResponse struct {
 type ContainerImage struct {
 	Name  string `yaml:"name"`
 	Image string `yaml:"image"`
+}
+
+type Values struct {
+	Global struct {
+		Cattle struct {
+			SystemDefaultRegistry string `yaml:"systemDefaultRegistry"`
+		} `yaml:"cattle"`
+	} `yaml:"global"`
+	Module struct {
+		Repository string `yaml:"repository"`
+		Tag        string `yaml:"tag"`
+	} `yaml:"module"`
 }
 
 func main() {
@@ -154,16 +165,15 @@ func pkgToChart(pkgPath, repoPath, outputDir, baseURL string) error {
 	}
 
 	valuesPath := filepath.Join(outputDir, "values.yaml")
-	valuesContent := fmt.Sprintf(`
-global:
-  cattle:
-    systemDefaultRegistry: %s
-module: # policy wasm module
-  repository: "%s"
-  tag: %s
-`, ref.Context().RegistryStr(), ref.Context().RepositoryStr(), ref.TagStr())
-	valuesContent = strings.TrimPrefix(valuesContent, "\n") // remove leading newline added for readability
-	err = os.WriteFile(valuesPath, []byte(valuesContent), 0o600)
+	valuesContent := Values{}
+	valuesContent.Global.Cattle.SystemDefaultRegistry = ref.Context().RegistryStr()
+	valuesContent.Module.Repository = ref.Context().RepositoryStr()
+	valuesContent.Module.Tag = ref.TagStr()
+	data, err = yaml.Marshal(valuesContent)
+	if err != nil {
+		return fmt.Errorf("error when creating values.yaml: %w", err)
+	}
+	err = os.WriteFile(valuesPath, data, 0o600)
 	if err != nil {
 		return fmt.Errorf("error writing values.yaml: %w", err)
 	}
