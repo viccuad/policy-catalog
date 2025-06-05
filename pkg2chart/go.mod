@@ -5,7 +5,7 @@ go 1.24.2
 require (
 	github.com/google/go-containerregistry v0.20.5
 	github.com/stretchr/testify v1.10.0
-	gopkg.in/yaml.v3 v3.0.1
+	github.com/yaml/go-yaml v2.1.0+incompatible
 	helm.sh/helm/v3 v3.18.1
 )
 
@@ -33,6 +33,7 @@ require (
 	golang.org/x/sys v0.33.0 // indirect
 	golang.org/x/text v0.24.0 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 	k8s.io/api v0.33.0 // indirect
 	k8s.io/apiextensions-apiserver v0.33.0 // indirect
 	k8s.io/apimachinery v0.33.0 // indirect
