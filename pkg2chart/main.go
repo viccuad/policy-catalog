@@ -86,6 +86,8 @@ func main() {
 }
 
 // pkgToChart converts an artifacthub-pkg.yml file to Chart.yaml and values.yaml files.
+//
+//nolint:funlen // Function is readable as-is, doesn't even have nested logic..
 func pkgToChart(pkgPath, repoPath, outputDir, baseURL string) error {
 	data, err := os.ReadFile(pkgPath)
 	if err != nil {
